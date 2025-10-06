@@ -80,3 +80,20 @@ body{margin:0;background:var(--bg);color:var(--white);font-family:var(--font-san
   .side-menu{width:100%;}
   .cart-panel{right:12px;left:12px;width:auto}
 }
+.socials {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.socials img {
+  width: 28px;
+  height: 28px;
+  transition: 0.3s ease;
+}
+
+.socials img:hover {
+  transform: scale(1.2);
+  opacity: 0.8;
+}
