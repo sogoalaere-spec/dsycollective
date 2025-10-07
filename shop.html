@@ -73,13 +73,25 @@
     </section>
 
     <!-- Cart Panel -->
-    <div id="cartPanel" class="hidden">
-      <h2>Your Cart</h2>
-      <ul id="cartItems"></ul>
-      <p>Total: ₦<span id="cartTotal">0</span></p>
-      <button id="checkoutBtn">Checkout</button>
-      <button id="clearCart" style="background:transparent; color:var(--muted); border:1px solid rgba(255,255,255,0.1); margin-top:8px;">Clear Cart</button>
-    </div>
+  <div id="cart-panel" class="hidden">
+  <h2>Your Cart</h2>
+  <ul id="cart-items"></ul>
+  <p>Total: ₦<span id="cart-total">0</span></p>
+
+  <form id="checkout-form">
+    <label for="customer-email">Email for Payment:</label>
+    <input 
+      type="email" 
+      id="customer-email" 
+      placeholder="you@example.com" 
+      required 
+      style="width:100%;padding:8px;margin:10px 0;border-radius:6px;border:none;"
+    />
+    <button type="submit" id="checkout-btn">Checkout with Paystack</button>
+  </form>
+
+  <button id="close-cart">Close</button>
+</div>
 
     <!-- Footer -->
     <footer>
