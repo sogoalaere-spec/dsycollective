@@ -1,108 +1,123 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DSY Collective</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DSY Collective</title>
+  <link rel="stylesheet" href="styles.css" />
+  <meta name="description" content="DSY Collective — aesthetic minimalist streetwear." />
+</head>
 
-  <body>
-    <!-- Splash Screen -->
-    <div id="splash">
-      <img src="logo.png" alt="DSY Collective Logo" class="splash-logo" />
-    </div>
+<body class="dark">
+  <!-- Splash Screen -->
+  <div id="splash" class="splash">
+    <img src="logo.png" alt="DSY Collective Logo" class="splash-logo" />
+  </div>
 
-    <!-- Main Site -->
-    <div id="site" class="hidden">
-      <header>
-        <nav class="navbar">
-          <div class="nav-left">
-            <h1 class="brand">DSY COLLECTIVE</h1>
-          </div>
-          <div class="nav-right">
-            <a href="#shop">Shop</a>
-            <a href="#lookbook">Lookbook</a>
-            <a href="#contact">Contact</a>
-          </div>
-        </nav>
-      </header>
-
-      <!-- Hero Section -->
-      <section class="hero">
-        <div class="hero-content">
-          <h2>Aesthetic Minimalist Streetwear</h2>
-          <p>Timeless luxury pieces built for every season.</p>
-          <a href="#shop" class="cta-btn">Shop Now</a>
+  <!-- Main Site -->
+  <div id="site" class="site hidden">
+    <header class="site-header">
+      <nav class="navbar">
+        <div class="nav-left">
+          <h1 class="brand">DSY COLLECTIVE</h1>
         </div>
-      </section>
-
-      <!-- Shop Section -->
-      <section id="shop" class="shop-section">
-        <h2>Shop the Collection</h2>
-        <div class="shop-grid">
-          <div class="product-card">
-            <img src="prod-tee.jpg" alt="DSY Tee" />
-            <h3>Classic Cropped Tee</h3>
-            <p>₦26,000</p>
-            <button class="buy-btn">Buy Now</button>
-          </div>
-
-          <div class="product-card">
-            <img src="prod-hoodie.jpg" alt="DSY Hoodie" />
-            <h3>Signature Hoodie</h3>
-            <p>₦40,000</p>
-            <button class="buy-btn">Buy Now</button>
-          </div>
-
-          <div class="product-card">
-            <img src="prod-jogger.jpg" alt="DSY Joggers" />
-            <h3>DSY Joggers</h3>
-            <p>₦40,000</p>
-            <button class="buy-btn">Buy Now</button>
-          </div>
+        <div class="nav-right">
+          <a href="index.html">Home</a>
+          <a href="shop.html">Shop</a>
+          <a href="lookbook.html">Lookbook</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
         </div>
-      </section>
+      </nav>
+    </header>
 
-      <!-- Lookbook -->
-      <section id="lookbook" class="lookbook">
-        <h2>Lookbook</h2>
-        <div class="lookbook-gallery">
-          <img src="prod-hoodie.jpg" alt="Look 1" />
-          <img src="prod-tee.jpg" alt="Look 2" />
-          <img src="prod-jogger.jpg" alt="Look 3" />
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <h2>Aesthetic Minimalist Streetwear</h2>
+        <p>Timeless luxury pieces built for every season.</p>
+        <a href="shop.html" class="cta-btn">Shop Now</a>
+      </div>
+    </section>
+
+    <!-- Shop Section -->
+    <section id="shop" class="shop-section">
+      <h2>Shop the Collection</h2>
+      <div class="shop-grid">
+        <div class="product-card">
+          <img src="prod-tee.jpg" alt="DSY Tee" />
+          <h3>Classic Cropped Tee</h3>
+          <p>₦26,000</p>
+          <button class="buy-btn">Buy Now</button>
         </div>
-      </section>
 
-      <!-- Contact Section -->
-      <section id="contact" class="contact-section">
-        <h2>Get in Touch</h2>
-        <p>For collaborations, press, or customer support:</p>
-        <p class="email">daizypatriso@gmail.com</p>
-
-        <div class="socials">
-          <a href="https://instagram.com/dsy_collective" target="_blank">
-            <img src="instagram.png" alt="Instagram" />
-          </a>
-          <a href="https://www.tiktok.com/@dsy.collective" target="_blank">
-            <img src="tiktok.png" alt="TikTok" />
-          </a>
+        <div class="product-card">
+          <img src="prod-hoodie.jpg" alt="DSY Hoodie" />
+          <h3>Signature Hoodie</h3>
+          <p>₦40,000</p>
+          <button class="buy-btn">Buy Now</button>
         </div>
-      </section>
 
-      <!-- Footer -->
-      <footer>
-        <div class="footer-links">
-          <a href="#shop">Shop</a>
-          <a href="#lookbook">Lookbook</a>
-          <a href="#contact">Contact</a>
+        <div class="product-card">
+          <img src="prod-jogger.jpg" alt="DSY Joggers" />
+          <h3>DSY Joggers</h3>
+          <p>₦40,000</p>
+          <button class="buy-btn">Buy Now</button>
         </div>
-        <p>© 2025 DSY Collective. All rights reserved.</p>
-      </footer>
-    </div>
+      </div>
+    </section>
 
-    <script src="script.js"></script>
-    <script src="https://js.paystack.co/v1/inline.js"></script>
+    <!-- Lookbook -->
+    <section id="lookbook" class="lookbook">
+      <h2>Lookbook</h2>
+      <div class="lookbook-gallery">
+        <img src="prod-hoodie.jpg" alt="Look 1" />
+        <img src="prod-tee.jpg" alt="Look 2" />
+        <img src="prod-jogger.jpg" alt="Look 3" />
+      </div>
+    </section>
 
-  </body>
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+      <h2>Get in Touch</h2>
+      <p>For collaborations, press, or customer support:</p>
+      <p class="email">daizypatriso@gmail.com</p>
+
+      <div class="socials">
+        <a href="https://instagram.com/dsy_collective" target="_blank">
+          <img src="instagram.png" alt="Instagram" />
+        </a>
+        <a href="https://www.tiktok.com/@dsy.collective" target="_blank">
+          <img src="tiktok.png" alt="TikTok" />
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-links">
+        <a href="shop.html">Shop</a>
+        <a href="lookbook.html">Lookbook</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <p>© 2025 DSY Collective. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+  <script src="https://js.paystack.co/v1/inline.js"></script>
+
+  <script>
+    // Splash fade-out transition
+    window.addEventListener("load", () => {
+      const splash = document.getElementById("splash");
+      const site = document.getElementById("site");
+      setTimeout(() => {
+        splash.classList.add("hidden");
+        site.classList.remove("hidden");
+      }, 2000);
+    });
+  </script>
+</body>
 </html>
