@@ -41,21 +41,24 @@
           <img src="prod-tee.jpg" alt="Cropped Boxy Tee" />
           <h3>Cropped Boxy Tee</h3>
           <p>₦26,000</p>
-          <button class="buy-btn">Buy Now</button>
+          <button class="add-to-cart" data-name="Classic Cropped Tee" data-price="26000">Add to Cart</button>
+
         </div>
 
         <div class="product-card">
           <img src="prod-hoodie.jpg" alt="Heavy Hoodie" />
           <h3>Heavy Hoodie</h3>
           <p>₦40,000</p>
-          <button class="buy-btn">Buy Now</button>
+         <button class="add-to-cart" data-name="Heavyweight Hoodie" data-price="40000">Add to Cart</button>
+
         </div>
 
         <div class="product-card">
           <img src="prod-jogger.jpg" alt="Joggers" />
           <h3>DSY Joggers</h3>
           <p>₦40,000</p>
-          <button class="buy-btn">Buy Now</button>
+        <button class="add-to-cart" data-name="Classic Jogger" data-price="40000">Add to Cart</button>
+
         </div>
       </div>
     </section>
@@ -80,9 +83,10 @@
   </div>
 
   <!-- Scripts -->
-  <script src="script.js"></script>
-  <script>
-    // Splash fade-out transition
+ <script src="script.js"></script>
+<script src="https://js.paystack.co/v1/inline.js"></script>
+
+  // Splash fade-out transition
     window.addEventListener("load", () => {
       const splash = document.getElementById("splash");
       const site = document.getElementById("site");
