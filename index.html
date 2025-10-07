@@ -1,193 +1,61 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DSY Collective</title>
-  <link rel="stylesheet" href="styles.css" />
-  <!-- To enable Paystack inline payments, add: <script src="https://js.paystack.co/v1/inline.js"></script> in the head -->
-  <meta name="description" content="DSY Collective — dark luxury minimalist streetwear inspired by the daisy." />
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
 </head>
-<body class="dark">
-  <div id="splash" class="splash">
-    <img src="logo.png" alt="DSY Collective logo" class="splash-logo" />
+<body>
+  <!-- Splash Screen -->
+  <div id="splash">
+    <img src="logo.png" alt="DSY Collective Logo" class="splash-logo">
   </div>
 
-  <div id="site" class="site hidden">
-
-    <header class="site-header">
-      <button id="menuBtn" class="menu-btn" aria-label="open menu">☰</button>
-      <div class="header-center"><img src="logo.png" alt="DSY logo" class="header-logo"/></div>
-      <div class="header-right">
-        <button id="cartBtn" class="cart-btn" aria-label="cart">🛒 <span id="cartCount">0</span></button>
-      </div>
+  <!-- Main Site -->
+  <div id="site" class="hidden">
+    <!-- Header -->
+    <header class="navbar">
+      <div class="brand">DSY Collective</div>
+      <div class="menu-toggle" id="menu-toggle">☰</div>
+      <nav class="nav-links" id="nav-links">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="lookbook.html">Lookbook</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="join.html">Join</a>
+      </nav>
     </header>
 
-    <nav id="sideMenu" class="side-menu" aria-hidden="true">
-      <button id="closeMenu" class="close-menu">✕</button>
-      <ul class="menu-list">
-        <li><a href="#home" data-target="home">Home</a></li>
-        <li><a href="#shop" data-target="shop">Shop</a></li>
-        <li><a href="#lookbook" data-target="lookbook">Lookbook</a></li>
-        <li><a href="#about" data-target="about">About DSY</a></li>
-        <li><a href="#journal" data-target="journal">Journal</a></li>
-        <li><a href="#collective" data-target="collective">Join the Collective</a></li>
-        <li><a href="#contact" data-target="contact">Contact</a></li>
-      </ul>
+    <!-- Hero Section -->
+    <section class="hero">
+      <h1>Aesthetic Streetwear for the Modern Era</h1>
+      <p>DSY Collective embodies timeless luxury, creativity, and authenticity.</p>
+      <a href="shop.html" class="btn">Shop the Collection</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
       <div class="socials">
-        <a href="#" aria-label="instagram">Instagram</a>
-        <a href="#" aria-label="tiktok">TikTok</a>
-        <a href="#" aria-label="pinterest">Pinterest</a>
+        <a href="https://instagram.com/dsy_collective" target="_blank">
+          <img src="instagram-icon.png" alt="Instagram" />
+        </a>
+        <a href="https://www.tiktok.com/@dsy.collective" target="_blank">
+          <img src="tiktok-icon.png" alt="TikTok" />
+        </a>
       </div>
-    </nav>
-
-    <main id="main">
-      <section id="home" class="hero">
-        <div class="hero-inner">
-          <div class="hero-copy">
-            <h1>Timeless. Aesthetic. Streetwear.</h1>
-            <p class="muted">DSY Collective — dark luxury streetwear inspired by the daisy. Minimal pieces, bold attitude.</p>
-            <div class="cta-row">
-              <a class="btn" href="#shop">Shop the Drop</a>
-              <a class="btn ghost" href="#lookbook">View Lookbook</a>
-            </div>
-          </div>
-          <div class="hero-media">
-            <div class="hero-image" style="background-image:url('assets/grunge.png')"></div>
-          </div>
-        </div>
-      </section>
-
-      <section id="shop" class="shop section">
-        <div class="container">
-          <h2>Shop</h2>
-          <p class="muted">Limited drops. Small runs. Shop safely with Paystack (NG) or test mode.</p>
-          <div class="grid products">
-            <article class="product" data-id="tee" data-name="Cropped Boxy Tee" data-price="26000">
-              <img src="prod-tee.jpg" alt="Cropped Tee">
-              <h3>Cropped Boxy Tee</h3>
-              <p class="price">₦26,000</p>
-              <div class="product-actions">
-                <select class="size">
-                  <option value="S">S</option><option value="M">M</option><option value="L">L</option><option value="XL">XL</option>
-                </select>
-                <button class="btn add-to-cart">Add to cart</button>
-              </div>
-            </article>
-
-            <article class="product" data-id="hoodie" data-name="Minimal Hoodie" data-price="40000">
-              <img src="prod-hoodie.jpg" alt="Hoodie">
-              <h3>Minimal Hoodie</h3>
-              <p class="price">₦40,000</p>
-              <div class="product-actions">
-                <select class="size">
-                  <option value="S">S</option><option value="M">M</option><option value="L">L</option><option value="XL">XL</option>
-                </select>
-                <button class="btn add-to-cart">Add to cart</button>
-              </div>
-            </article>
-
-            <article class="product" data-id="jogger" data-name="Comfort Joggers" data-price="40000">
-              <img src="prod-jogger.jpg" alt="Joggers">
-              <h3>Comfort Joggers</h3>
-              <p class="price">₦40,000</p>
-              <div class="product-actions">
-                <select class="size">
-                  <option value="S">S</option><option value="M">M</option><option value="L">L</option><option value="XL">XL</option>
-                </select>
-                <button class="btn add-to-cart">Add to cart</button>
-              </div>
-            </article>
-          </div>
-
-          <div id="cartPanel" class="cart-panel hidden">
-            <h3>Your Cart</h3>
-            <div id="cartItems"></div>
-            <div class="cart-footer">
-              <div class="cart-total">Total: ₦<span id="cartTotal">0</span></div>
-              <div class="cart-actions">
-                <button id="checkoutBtn" class="btn primary">Checkout</button>
-                <button id="clearCart" class="btn ghost">Clear</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="lookbook" class="lookbook section">
-        <div class="container">
-          <h2>Lookbook</h2>
-          <div class="gallery">
-            <img src="prod-tee.jpg" alt="look">
-            <img src="prod-hoodie.jpg" alt="look">
-            <img src="prod-jogger.jpg" alt="look">
-          </div>
-        </div>
-      </section>
-
-      <section id="about" class="section">
-        <div class="container">
-          <h2>About DSY</h2>
-          <p>DSY Collective is a dark-luxury streetwear label inspired by the daisy — a quiet icon of resilience and beauty. We balance minimalism with edge and build pieces designed to last beyond seasons.</p>
-        </div>
-      </section>
-
-      <section id="journal" class="section">
-        <div class="container">
-          <h2>Journal</h2>
-          <article class="post">
-            <h3>Welcome to DSY</h3>
-            <p class="muted">Stories, drops, and creative notes from the DSY team.</p>
-          </article>
-        </div>
-      </section>
-
-      <section id="collective" class="section newsletter">
-        <div class="container">
-          <h2>Join the Collective</h2>
-          <p class="muted">Sign up for early drops, invites, and behind-the-scenes.</p>
-          <form id="newsletterForm">
-            <input id="email" type="email" placeholder="you@domain.com" required>
-            <button class="btn" type="submit">Join</button>
-            <p class="small muted">We’ll only send drop news and creative notes.</p>
-          </form>
-        </div>
-      </section>
-
-      <section id="contact" class="section contact">
-        <div class="container">
-          <h2>Contact</h2>
-          <form id="contactForm">
-            <div class="form-grid">
-              <input name="name" placeholder="Your name" required>
-              <input name="email" placeholder="you@domain.com" required>
-              <input name="subject" placeholder="Subject" required>
-              <textarea name="message" placeholder="Tell us..." rows="5" required></textarea>
-            </div>
-            <div class="form-actions">
-              <button class="btn" type="submit">Send message</button>
-            </div>
-          </form>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <div class="container footer-inner">
-        <div>© DSY Collective</div>
-        <div class="socials">
-  <a href="https://www.instagram.com/dsy_collective" target="_blank">
-    <img src="assets/instagram-icon.png" alt="Instagram" />
-  </a>
-  <a href="https://www.tiktok.com/@dsy.collective" target="_blank">
-    <img src="assets/tiktok-icon.png" alt="TikTok" />
-  </a>
-</div>
-
+      <p>© 2025 DSY Collective | All Rights Reserved</p>
+      <div class="footer-links">
+        <a href="index.html">Home</a> ·
+        <a href="shop.html">Shop</a> ·
+        <a href="lookbook.html">Lookbook</a> ·
+        <a href="about.html">About</a> ·
+        <a href="contact.html">Contact</a> ·
+        <a href="join.html">Join</a>
       </div>
     </footer>
   </div>
-
-  <script src="script.js"></script>
 </body>
 </html>
