@@ -220,3 +220,141 @@ footer {
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   }
 }
+/* ------------------------------------------------------------- */
+/* 🌼 DSY Collective Additions (fade effects, cart, polish)      */
+/* ------------------------------------------------------------- */
+
+/* 🌸 Splash animation */
+.splash {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: var(--bg, #000);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+}
+.splash.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+.splash-logo {
+  width: 180px;
+  max-width: 70%;
+  filter: drop-shadow(0 8px 24px rgba(0,0,0,0.6));
+  animation: float 3s ease-in-out infinite;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+/* 🌫 Fade-in sections */
+.fade-in {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 🛒 Cart panel enhancements */
+#cartPanel {
+  position: fixed;
+  top: 100px;
+  right: 20px;
+  background: var(--panel, #111);
+  padding: 20px;
+  width: 320px;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+  color: var(--white, #fff);
+  z-index: 1000;
+  display: none;
+}
+#cartPanel h2 {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  letter-spacing: 0.5px;
+}
+#cartPanel ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+  max-height: 220px;
+  overflow-y: auto;
+}
+#cartPanel p {
+  margin: 6px 0;
+  font-weight: 500;
+}
+#cartPanel button {
+  margin-top: 10px;
+  padding: 10px 16px;
+  background: var(--white, #fff);
+  color: var(--panel, #111);
+  border: none;
+  border-radius: 6px;
+  font-weight: 700;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.3s;
+}
+#cartPanel button:hover {
+  background: var(--cream, #d9c6a5);
+  color: #000;
+}
+#cartPanel:not(.hidden) { display: block; }
+
+/* 🧭 Navigation active link highlight */
+nav a.active {
+  color: var(--cream, #d9c6a5);
+  font-weight: 600;
+}
+
+/* ✨ Button hover glow */
+.btn, button {
+  transition: all 0.3s ease;
+}
+.btn:hover, button:hover {
+  filter: brightness(1.2);
+  transform: translateY(-2px);
+}
+
+/* 🧠 Utility (muted text + small) */
+.muted { color: var(--muted, #bdbdbd); }
+.small { font-size: 0.85rem; }
+
+/* 🧩 Responsive polish */
+@media (max-width: 900px) {
+  header {
+    flex-direction: column;
+    padding: 14px 20px;
+  }
+  header .brand {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  .nav-right {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+  }
+  #cartPanel {
+    top: auto;
+    bottom: 20px;
+    right: 10px;
+    left: 10px;
+    width: auto;
+  }
+  .socials img {
+    width: 20px;
+    height: 20px;
+  }
+}
