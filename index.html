@@ -1,61 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DSY Collective</title>
-  <link rel="stylesheet" href="style.css" />
-  <script defer src="script.js"></script>
-</head>
-<body>
-  <!-- Splash Screen -->
-  <div id="splash">
-    <img src="logo.png" alt="DSY Collective Logo" class="splash-logo">
-  </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DSY Collective</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
 
-  <!-- Main Site -->
-  <div id="site" class="hidden">
-    <!-- Header -->
-    <header class="navbar">
-      <div class="brand">DSY Collective</div>
-      <div class="menu-toggle" id="menu-toggle">☰</div>
-      <nav class="nav-links" id="nav-links">
-        <a href="index.html">Home</a>
-        <a href="shop.html">Shop</a>
-        <a href="lookbook.html">Lookbook</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-        <a href="join.html">Join</a>
-      </nav>
-    </header>
+  <body>
+    <!-- 🌼 Splash Screen -->
+    <div id="splash">
+      <img src="logo.png" alt="DSY Collective Logo" class="splash-logo" />
+    </div>
 
-    <!-- Hero Section -->
-    <section class="hero">
-      <h1>Aesthetic Streetwear for the Modern Era</h1>
-      <p>DSY Collective embodies timeless luxury, creativity, and authenticity.</p>
-      <a href="shop.html" class="btn">Shop the Collection</a>
-    </section>
+    <!-- 🌍 Main Site -->
+    <div id="site" class="hidden">
+      <header>
+        <nav class="navbar">
+          <div class="nav-left">
+            <h1 class="brand">DSY COLLECTIVE</h1>
+          </div>
+          <div class="nav-right">
+            <a href="#shop">Shop</a>
+            <a href="#lookbook">Lookbook</a>
+            <a href="#contact">Contact</a>
+          </div>
+        </nav>
+      </header>
 
-    <!-- Footer -->
-    <footer>
-      <div class="socials">
-        <a href="https://instagram.com/dsy_collective" target="_blank">
-          <img src="instagram-icon.png" alt="Instagram" />
-        </a>
-        <a href="https://www.tiktok.com/@dsy.collective" target="_blank">
-          <img src="tiktok-icon.png" alt="TikTok" />
-        </a>
-      </div>
-      <p>© 2025 DSY Collective | All Rights Reserved</p>
-      <div class="footer-links">
-        <a href="index.html">Home</a> ·
-        <a href="shop.html">Shop</a> ·
-        <a href="lookbook.html">Lookbook</a> ·
-        <a href="about.html">About</a> ·
-        <a href="contact.html">Contact</a> ·
-        <a href="join.html">Join</a>
-      </div>
-    </footer>
-  </div>
-</body>
+      <!-- 🖤 Hero Section -->
+      <section class="hero">
+        <div class="hero-content">
+          <h2>Aesthetic Minimalist Streetwear</h2>
+          <p>Timeless luxury pieces built for every season.</p>
+          <a href="#shop" class="cta-btn">Shop Now</a>
+        </div>
+      </section>
+
+      <!-- 🛍️ Shop Section -->
+      <section id="shop" class="shop-section">
+        <h2>Shop the Collection</h2>
+        <div class="shop-grid">
+          <div class="product-card">
+            <img src="tee1.png" alt="DSY Tee" />
+            <h3>Classic Cropped Tee</h3>
+            <p>₦26,000</p>
+            <button class="buy-btn">Buy Now</button>
+          </div>
+
+          <div class="product-card">
+            <img src="hoodie1.png" alt="DSY Hoodie" />
+            <h3>Signature Hoodie</h3>
+            <p>₦40,000</p>
+            <button class="buy-btn">Buy Now</button>
+          </div>
+
+          <div class="product-card">
+            <img src="sweats1.png" alt="DSY Joggers" />
+            <h3>DSY Joggers</h3>
+            <p>₦40,000</p>
+            <button class="buy-btn">Buy Now</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 📸 Lookbook -->
+      <section id="lookbook" class="lookbook">
+        <h2>Lookbook</h2>
+        <div class="lookbook-gallery">
+          <img src="look1.png" alt="Look 1" />
+          <img src="look2.png" alt="Look 2" />
+          <img src="look3.png" alt="Look 3" />
+        </div>
+      </section>
+
+      <!-- 📬 Contact Section -->
+      <section id="contact" class="contact-section">
+        <h2>Get in Touch</h2>
+        <p>For collaborations, press, or customer support:</p>
+        <p class="email">daizypatriso@gmail.com</p>
+
+        <div class="socials">
+          <a href="https://instagram.com/dsy_collective" target="_blank">
+            <img src="instagram.png" alt="Instagram" />
+          </a>
+          <a href="https://www.tiktok.com/@dsy.collective" target="_blank">
+            <img src="tiktok.png" alt="TikTok" />
+          </a>
+        </div>
+      </section>
+
+      <!-- ⚡ Footer -->
+      <footer>
+        <div class="footer-links">
+          <a href="#shop">Shop</a>
+          <a href="#lookbook">Lookbook</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <p>© 2025 DSY Collective. All rights reserved.</p>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://js.paystack.co/v1/inline.js"></script>
+
+  </body>
 </html>
