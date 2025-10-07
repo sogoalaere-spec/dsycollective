@@ -72,12 +72,13 @@ document.addEventListener('DOMContentLoaded', function(){
     checkoutBtn.addEventListener('click', ()=>{
       if(cart.length === 0){ alert('Your cart is empty'); return; }
       const total = Number(cart.reduce((s,i)=> s + Number(i.price),0));
-      const PAYSTACK_PUBLIC_KEY = 'pk_test_REPLACE_WITH_YOURS';
-      const email = prompt('Enter customer email for payment (test)');
+      const PAYSTACK_PUBLIC_KEY = 'pk_live_8fc53d727f2efefc2e8899494197e9b04ddc945f';
+      const email = prompt('Enter customer email for payment');
       if(!email) return;
       if(!window.PaystackPop){
         alert('Paystack script not loaded. To enable payments, add Paystack script and a real public key.');
         return;
+        
       }
       const handler = window.PaystackPop.setup({
         key: PAYSTACK_PUBLIC_KEY,
