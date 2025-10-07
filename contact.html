@@ -68,4 +68,34 @@
     <footer>
       <div class="footer-links">
         <a href="shop.html">Shop</a>
-        <a href="lookbook.html">Look
+        <a href="lookbook.html">Lookbook</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <p>© 2025 DSY Collective. All rights reserved.</p>
+
+      <div class="socials">
+        <a href="https://instagram.com/dsy_collective" target="_blank">
+          <img src="instagram.png" alt="Instagram" />
+        </a>
+        <a href="https://www.tiktok.com/@dsy.collective" target="_blank">
+          <img src="tiktok.png" alt="TikTok" />
+        </a>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+  <script>
+    // Splash fade-out
+    window.addEventListener("load", () => {
+      const splash = document.getElementById("splash");
+      const site = document.getElementById("site");
+      setTimeout(() => {
+        splash.classList.add("hidden");
+        site.classList.remove("hidden");
+      }, 1500);
+    });
+  </script>
+</body>
+</html>
