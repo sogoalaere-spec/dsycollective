@@ -63,38 +63,54 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  if (checkoutBtn) {
-    checkoutBtn.addEventListener("click", () => {
-      if (cart.length === 0) {
-        alert("Your cart is empty");
-        return;
+// Checkout form submit
+const checkoutForm = document.getElementById('checkout-form');
+if(checkoutForm){
+  checkoutForm.addEventListener('submit', (e)=>{
+    e.preventDefault();
+
+    if(cart.length === 0){
+      alert('Your cart is empty');
+      return;
+    }
+
+    const emailInput = document.getElementById('customer-email');
+    const email = emailInput.value.trim();
+    if(!email){
+      alert('Please enter your email before checkout.');
+      return;
+    }
+
+    const total = Number(cart.reduce((sum, item)=> sum + Number(item.price), 0));
+    const PAYSTACK_PUBLIC_KEY = 'pk_live_8fc53d727f2efefc2e8899494197e9b04ddc945f'; // Replace with your own key
+
+    const handler = PaystackPop.setup({
+      key: PAYSTACK_PUBLIC_KEY,
+      email: email,
+      amount: total * 100,
+      currency: "NGN",
+      ref: "DSY_" + String(new Date().getTime()),
+      metadata: {
+        custom_fields: [
+          { display_name: "Cart Details", variable_name: "cart", value: JSON.stringify(cart) }
+        ]
+      },
+      callback: function(response){
+        alert('Payment complete! Reference: ' + response.reference);
+        cart.length = 0;
+        updateCartUI();
+        cartPanel.classList.add('hidden');
+        checkoutForm.reset();
+      },
+      onClose: function(){
+        alert('Payment cancelled.');
       }
-
-      const total = cart.reduce((s, i) => s + Number(i.price), 0);
-      const email = prompt("Enter your email for Paystack demo payment:");
-      if (!email) return;
-
-      if (!window.PaystackPop) {
-        alert("Paystack script not loaded. (Add Paystack inline.js to enable)");
-        return;
-      }
-
-      const handler = window.PaystackPop.setup({
-        key: "pk_live_8fc53d727f2efefc2e8899494197e9b04ddc945f", // Replace with your real key
-        email: email,
-        amount: total * 100,
-        metadata: { custom_fields: [{ display_name: "Cart", value: JSON.stringify(cart) }] },
-        callback: response => {
-          alert("Payment complete. Reference: " + response.reference);
-          cart.length = 0;
-          updateCartUI();
-          cartPanel?.classList.add("hidden");
-        },
-        onClose: () => alert("Payment cancelled.")
-      });
-      handler.openIframe();
     });
-  }
+
+    handler.openIframe();
+  });
+}
+
 
   /* 💌 Join form feedback */
   const joinForm = document.getElementById("join-form");
