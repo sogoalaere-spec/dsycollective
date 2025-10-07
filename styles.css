@@ -311,6 +311,39 @@ footer {
 }
 #cartPanel:not(.hidden) { display: block; }
 
+/* 🛒 Cart icon in header */
+.cart-icon {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.1);
+  color: var(--white);
+  font-size: 1rem;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.3s ease;
+}
+
+.cart-icon:hover {
+  background: var(--cream);
+  color: #000;
+  transform: translateY(-2px);
+}
+
+/* small number bubble */
+#cartCount {
+  background: var(--cream);
+  color: #000;
+  border-radius: 50%;
+  font-size: 0.8rem;
+  padding: 1px 6px;
+  font-weight: 700;
+  min-width: 18px;
+  text-align: center;
+}
+
 /* 🧭 Navigation active link highlight */
 nav a.active {
   color: var(--cream, #d9c6a5);
