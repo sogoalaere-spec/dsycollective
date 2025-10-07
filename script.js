@@ -110,3 +110,15 @@ document.addEventListener('DOMContentLoaded', function(){
     e.target.reset();
   });
 });
+
+// 🧠 Splash fade-out animation
+window.addEventListener("load", () => {
+  const splash = document.getElementById("splash");
+  const site = document.getElementById("site");
+
+  setTimeout(() => {
+    splash.classList.add("fade-out");
+    site.classList.remove("hidden");
+  }, 1800); // 1.8s delay before fade
+});
+
