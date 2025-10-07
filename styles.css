@@ -193,3 +193,67 @@ footer p {
     align-items: center;
   }
 }
+.contact {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.contact h2 {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+}
+
+.contact p {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 40px;
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.contact-form .form-group {
+  margin-bottom: 20px;
+}
+
+.contact-form label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #111;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  background-color: #fff;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #000;
+  outline: none;
+}
+
+.contact-form .btn {
+  display: inline-block;
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.contact-form .btn:hover {
+  background: #333;
+}
