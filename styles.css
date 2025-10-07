@@ -311,38 +311,44 @@ footer {
 }
 #cartPanel:not(.hidden) { display: block; }
 
-/* 🛒 Cart icon in header */
+/* 🛒 Cart Icon (fix size + appearance) */
 .cart-icon {
   background: transparent;
-  border: 1px solid rgba(255,255,255,0.1);
-  color: var(--white);
-  font-size: 1rem;
-  padding: 6px 12px;
-  border-radius: 6px;
-  cursor: pointer;
+  border: none;
+  color: #fff;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  transition: all 0.3s ease;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  transition: background 0.3s;
 }
 
 .cart-icon:hover {
-  background: var(--cream);
-  color: #000;
-  transform: translateY(-2px);
+  background: rgba(255,255,255,0.1);
 }
 
-/* small number bubble */
-#cartCount {
-  background: var(--cream);
-  color: #000;
-  border-radius: 50%;
-  font-size: 0.8rem;
-  padding: 1px 6px;
-  font-weight: 700;
-  min-width: 18px;
-  text-align: center;
+.cart-icon svg {
+  width: 22px;
+  height: 22px;
 }
+
+#cartCount {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: var(--cream, #d9c6a5);
+  color: #000;
+  font-size: 0.75rem;
+  font-weight: bold;
+  border-radius: 50%;
+  padding: 2px 6px;
+  line-height: 1;
+}
+
 
 /* 🧭 Navigation active link highlight */
 nav a.active {
