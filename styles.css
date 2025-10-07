@@ -398,3 +398,102 @@ nav a.active {
     height: 20px;
   }
 }
+/* 💳 DSY Checkout Page Styling */
+.checkout-page {
+  min-height: 100vh;
+  background: var(--bg, #090909);
+  color: var(--white, #fff);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 100px 20px 60px;
+  text-align: center;
+}
+
+.checkout-page h1 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+  color: var(--cream, #d9c6a5);
+  text-transform: uppercase;
+}
+
+#checkout-summary {
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(8px);
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+}
+
+#checkout-items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  margin-bottom: 20px;
+}
+#checkout-items li {
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  color: var(--muted, #bdbdbd);
+}
+
+#checkout-summary p {
+  margin-top: 16px;
+  font-size: 1.1rem;
+  color: var(--cream, #d9c6a5);
+}
+
+#checkout-form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+#checkout-form input {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.05);
+  color: #fff;
+  font-size: 1rem;
+}
+
+#checkout-form input::placeholder {
+  color: #bbb;
+}
+
+#checkout-form button {
+  background: var(--cream, #d9c6a5);
+  color: #000;
+  border: none;
+  padding: 12px;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#checkout-form button:hover {
+  background: #fff;
+  transform: translateY(-2px);
+}
+
+header .logo {
+  color: var(--cream, #d9c6a5);
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+  width: 100%;
+  padding-top: 30px;
+}
