@@ -25,36 +25,35 @@
       <a href="contact.html">Contact</a>
       <a href="join.html">Join</a>
     </nav>
-    <div class="cart-icon" id="cart-btn">🛒</div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="shop-hero fade-in">
-    <h1>Five Petals, One Vision</h1>
-    <p>Explore our timeless pieces — crafted for self-expression.</p>
-  </section>
+  <!-- Shop Section -->
+  <section class="shop fade-in">
+    <h1>Shop The Collective</h1>
+    <p>Wear the story. Live the vision.</p>
 
-  <!-- Product Grid -->
-  <section class="shop-grid fade-in">
-    <div class="product">
-      <img src="tee1.jpg" alt="Petal Tee" />
-      <h3>Petal Tee</h3>
-      <p>₦18,000</p>
-      <button class="add-to-cart" data-name="Petal Tee" data-price="18000">Add to Cart</button>
-    </div>
+    <div class="shop-grid" id="product-list">
+      <!-- Example products -->
+      <div class="product">
+        <img src="tee1.jpg" alt="Cropped Boxy Tee" />
+        <h3>Cropped Boxy Tee</h3>
+        <p>₦26,000</p>
+        <button class="add-to-cart" data-name="Cropped Boxy Tee" data-price="26000">Add to Cart</button>
+      </div>
 
-    <div class="product">
-      <img src="hoodie1.jpg" alt="Growth Hoodie" />
-      <h3>Growth Hoodie</h3>
-      <p>₦35,000</p>
-      <button class="add-to-cart" data-name="Growth Hoodie" data-price="35000">Add to Cart</button>
-    </div>
+      <div class="product">
+        <img src="hoodie1.jpg" alt="Heavy Hoodie" />
+        <h3>Heavy Hoodie</h3>
+        <p>₦40,000</p>
+        <button class="add-to-cart" data-name="Heavy Hoodie" data-price="40000">Add to Cart</button>
+      </div>
 
-    <div class="product">
-      <img src="sweats1.jpg" alt="Love Sweats" />
-      <h3>Love Sweats</h3>
-      <p>₦28,000</p>
-      <button class="add-to-cart" data-name="Love Sweats" data-price="28000">Add to Cart</button>
+      <div class="product">
+        <img src="longsleeve1.jpg" alt="Double Layered Long Sleeve" />
+        <h3>Double Layered Long Sleeve</h3>
+        <p>₦40,000</p>
+        <button class="add-to-cart" data-name="Double Layered Long Sleeve" data-price="40000">Add to Cart</button>
+      </div>
     </div>
   </section>
 
@@ -62,7 +61,7 @@
   <div id="cart-panel" class="hidden">
     <h2>Your Cart</h2>
     <ul id="cart-items"></ul>
-    <div class="cart-total">Total: ₦<span id="cart-total">0</span></div>
+    <p>Total: ₦<span id="cart-total">0</span></p>
     <button id="checkout-btn">Checkout</button>
     <button id="close-cart">Close</button>
   </div>
