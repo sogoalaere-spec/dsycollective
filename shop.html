@@ -15,53 +15,69 @@
 
   <!-- Main Site -->
   <div id="site" class="site hidden">
-    
-    <!-- Header -->
-    <header>
-      <div class="nav-left">
-        <h1 class="brand">DSY COLLECTIVE</h1>
-      </div>
-      <div class="nav-right">
-        <a href="index.html">Home</a>
-        <a href="shop.html" class="active">Shop</a>
-        <a href="lookbook.html">Lookbook</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-        <a href="join.html">Join</a>
-      </div>
-    </header>
+
+   <!-- Header -->
+<header>
+  <div class="nav-left">
+    <h1 class="brand">DSY COLLECTIVE</h1>
+  </div>
+
+  <div class="nav-right">
+    <a href="index.html">Home</a>
+    <a href="lookbook.html">Lookbook</a>
+    <a href="shop.html" class="active">Shop</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="join.html">Join</a>
+
+    <!-- Cart Icon -->
+    <button id="cartBtn" class="cart-icon" title="View Cart">
+      🛒 <span id="cartCount">0</span>
+    </button>
+  </div>
+</header>
+
 
     <!-- Shop Section -->
-    <section id="shop" class="shop-section">
-      <h2>Shop the Collective</h2>
-      <p class="muted">Wear the story. Live the vision.</p>
+    <section id="shop" class="shop-section fade-in">
+      <h2>Shop the Collection</h2>
+      <p class="muted">Timeless luxury pieces crafted for the modern creative.</p>
 
       <div class="shop-grid">
-        <div class="product-card">
-          <img src="prod-tee.jpg" alt="Cropped Boxy Tee" />
-          <h3>Cropped Boxy Tee</h3>
+        <!-- Product 1 -->
+        <div class="product-card" data-name="Classic Cropped Tee" data-price="26000">
+          <img src="prod-tee.jpg" alt="DSY Tee" />
+          <h3>Classic Cropped Tee</h3>
           <p>₦26,000</p>
           <button class="add-to-cart" data-name="Classic Cropped Tee" data-price="26000">Add to Cart</button>
-
         </div>
 
-        <div class="product-card">
-          <img src="prod-hoodie.jpg" alt="Heavy Hoodie" />
-          <h3>Heavy Hoodie</h3>
+        <!-- Product 2 -->
+        <div class="product-card" data-name="Signature Hoodie" data-price="40000">
+          <img src="prod-hoodie.jpg" alt="DSY Hoodie" />
+          <h3>Signature Hoodie</h3>
           <p>₦40,000</p>
-         <button class="add-to-cart" data-name="Heavyweight Hoodie" data-price="40000">Add to Cart</button>
-
+          <button class="add-to-cart" data-name="Signature Hoodie" data-price="40000">Add to Cart</button>
         </div>
 
-        <div class="product-card">
-          <img src="prod-jogger.jpg" alt="Joggers" />
+        <!-- Product 3 -->
+        <div class="product-card" data-name="DSY Joggers" data-price="40000">
+          <img src="prod-jogger.jpg" alt="DSY Joggers" />
           <h3>DSY Joggers</h3>
           <p>₦40,000</p>
-        <button class="add-to-cart" data-name="Classic Jogger" data-price="40000">Add to Cart</button>
-
+          <button class="add-to-cart" data-name="DSY Joggers" data-price="40000">Add to Cart</button>
         </div>
       </div>
     </section>
+
+    <!-- Cart Panel -->
+    <div id="cartPanel" class="hidden">
+      <h2>Your Cart</h2>
+      <ul id="cartItems"></ul>
+      <p>Total: ₦<span id="cartTotal">0</span></p>
+      <button id="checkoutBtn">Checkout</button>
+      <button id="clearCart" style="background:transparent; color:var(--muted); border:1px solid rgba(255,255,255,0.1); margin-top:8px;">Clear Cart</button>
+    </div>
 
     <!-- Footer -->
     <footer>
@@ -71,6 +87,7 @@
         <a href="contact.html">Contact</a>
       </div>
       <p>© 2025 DSY Collective. All rights reserved.</p>
+
       <div class="socials">
         <a href="https://instagram.com/dsy_collective" target="_blank">
           <img src="instagram.png" alt="Instagram" />
@@ -83,18 +100,7 @@
   </div>
 
   <!-- Scripts -->
- <script src="script.js"></script>
-<script src="https://js.paystack.co/v1/inline.js"></script>
-
-  // Splash fade-out transition
-    window.addEventListener("load", () => {
-      const splash = document.getElementById("splash");
-      const site = document.getElementById("site");
-      setTimeout(() => {
-        splash.classList.add("hidden");
-        site.classList.remove("hidden");
-      }, 1500);
-    });
-  </script>
+  <script src="script.js"></script>
+  <script src="https://js.paystack.co/v1/inline.js"></script>
 </body>
 </html>
