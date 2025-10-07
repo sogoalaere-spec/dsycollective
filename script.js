@@ -148,3 +148,114 @@ if(checkoutForm){
     }, 200);
   });
 });
+// --- Robust Add-to-Cart module ---
+(function(){
+  // simple in-memory cart
+  const cart = [];
+
+  // helper: try both ID styles
+  const getEl = (idA, idB) => document.getElementById(idA) || document.getElementById(idB);
+
+  const cartPanel = getEl('cartPanel','cart-panel');
+  const cartItemsEl = getEl('cartItems','cart-items');
+  const cartTotalEl = getEl('cartTotal','cart-total');
+  const cartCountEl = getEl('cartCount','cart-count');
+  const cartBtn = getEl('cartBtn','cart-btn');
+  const clearCartBtn = getEl('clearCart','clear-cart');
+
+  // format numbers to simple string with commas
+  const fmt = n => Number(n).toLocaleString();
+
+  function updateCartUI(){
+    if(!cartItemsEl) {
+      console.warn('cartItems element not found');
+      return;
+    }
+    cartItemsEl.innerHTML = '';
+    let total = 0;
+    cart.forEach((item, idx)=>{
+      const li = document.createElement('li');
+      li.className = 'cart-item';
+      // show name and price
+      li.innerHTML = `<div style="display:flex;justify-content:space-between;gap:10px;align-items:center">
+        <div>
+          <strong>${item.name}</strong>
+          <div class="muted small">₦${fmt(item.price)}</div>
+        </div>
+        <div>
+          <button class="remove-item" data-idx="${idx}" title="Remove" style="background:transparent;border:none;color:var(--muted);cursor:pointer">✕</button>
+        </div>
+      </div>`;
+      cartItemsEl.appendChild(li);
+      total += Number(item.price);
+    });
+
+    if(cartTotalEl) cartTotalEl.textContent = fmt(total);
+    if(cartCountEl) cartCountEl.textContent = String(cart.length);
+
+    // hide panel if empty
+    if(cart.length === 0 && cartPanel) cartPanel.classList.add('hidden');
+  }
+
+  // event delegation for Add to Cart (works even if buttons are created dynamically)
+  document.addEventListener('click', function(e){
+    const addBtn = e.target.closest('.add-to-cart');
+    if(addBtn){
+      e.preventDefault();
+      // try to read data attributes first
+      let name = addBtn.dataset.name || addBtn.getAttribute('data-name');
+      let price = addBtn.dataset.price || addBtn.getAttribute('data-price');
+
+      // fallback: find nearest product card info
+      const productCard = addBtn.closest('.product-card, .product');
+      if(!name && productCard){
+        const h = productCard.querySelector('h3, h2, .product-name');
+        name = h ? h.textContent.trim() : 'Product';
+      }
+      if(!price && productCard){
+        const p = productCard.querySelector('p');
+        // extract digits from price like "₦26,000"
+        price = p ? p.textContent.replace(/[^\d]/g,'') : '0';
+      }
+      // final fallbacks
+      name = name || 'Product';
+      price = price || '0';
+
+      // push to cart
+      cart.push({ id: String(Date.now()), name: name, price: Number(price) });
+      console.log('Added to cart:', name, price);
+      updateCartUI();
+      if(cartPanel) cartPanel.classList.remove('hidden');
+      return;
+    }
+
+    // remove item button inside cart
+    const removeBtn = e.target.closest('.remove-item');
+    if(removeBtn){
+      const idx = Number(removeBtn.dataset.idx);
+      if(!Number.isNaN(idx)) {
+        cart.splice(idx,1);
+        updateCartUI();
+      }
+      return;
+    }
+  });
+
+  // toggle cart panel on header button
+  if(cartBtn && cartPanel){
+    cartBtn.addEventListener('click', ()=> cartPanel.classList.toggle('hidden'));
+  }
+
+  // clear cart if button present
+  if(clearCartBtn){
+    clearCartBtn.addEventListener('click', ()=>{
+      cart.length = 0;
+      updateCartUI();
+    });
+  }
+
+  // expose cart to window for debugging in console if needed
+  window.dsyCart = cart;
+  // initial UI update (in case there are items)
+  updateCartUI();
+})();
