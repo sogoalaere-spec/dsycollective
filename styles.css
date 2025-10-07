@@ -311,30 +311,32 @@ footer {
 }
 #cartPanel:not(.hidden) { display: block; }
 
-/* 🛒 Cart Icon (fix size + appearance) */
+/* 🛒 Fix cart icon visibility */
+.cart-icon svg {
+  stroke: var(--white, #ffffff);
+  width: 22px;
+  height: 22px;
+}
+
 .cart-icon {
-  background: transparent;
-  border: none;
-  color: #fff !important;
   display: inline-flex;
   align-items: center;
-  justify-content: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 8px 12px;
+  border-radius: 8px;
   cursor: pointer;
-  position: relative;
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  transition: background 0.3s;
+  transition: background 0.3s ease;
 }
 
 .cart-icon:hover {
-  background: rgba(255,255,255,0.15);
+  background: rgba(255, 255, 255, 0.15);
 }
 
-.cart-icon svg {
-  width: 22px;
-  height: 22px;
-  stroke: #fff; 
+.cart-icon span {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--white, #ffffff);
 }
 
 #cartCount {
