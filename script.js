@@ -62,11 +62,14 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Toggle Cart Panel
-  if (cartBtn) {
-    cartBtn.addEventListener("click", () => {
-      cartPanel.classList.toggle("hidden");
-    });
-  }
+if (cartBtn) {
+  cartBtn.addEventListener('click', () => {
+    // save cart data for checkout page
+    localStorage.setItem('dsyCart', JSON.stringify(cart));
+    // open checkout in new tab
+    window.open('checkout.html', '_blank');
+  });
+}
 
   // Close Cart
   if (closeCart) {
