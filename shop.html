@@ -4,81 +4,93 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shop | DSY Collective</title>
-  <link rel="stylesheet" href="style.css" />
-  <script defer src="script.js"></script>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 
-<body>
-  <!-- Splash -->
-  <div id="splash">
+<body class="dark">
+  <!-- Splash Screen -->
+  <div id="splash" class="splash">
     <img src="logo.png" alt="DSY Collective Logo" class="splash-logo" />
   </div>
 
-  <!-- Header -->
-  <header>
-    <div class="logo">DSY COLLECTIVE</div>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="lookbook.html">Lookbook</a>
-      <a href="shop.html" class="active">Shop</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-      <a href="join.html">Join</a>
-    </nav>
-  </header>
-
-  <!-- Shop Section -->
-  <section class="shop fade-in">
-    <h1>Shop The Collective</h1>
-    <p>Wear the story. Live the vision.</p>
-
-    <div class="shop-grid" id="product-list">
-      <!-- Example products -->
-      <div class="product">
-        <img src="prod-tee.jpg" alt="Cropped Boxy Tee" />
-        <h3>Cropped Boxy Tee</h3>
-        <p>₦26,000</p>
-        <button class="add-to-cart" data-name="Cropped Boxy Tee" data-price="26000">Add to Cart</button>
+  <!-- Main Site -->
+  <div id="site" class="site hidden">
+    
+    <!-- Header -->
+    <header>
+      <div class="nav-left">
+        <h1 class="brand">DSY COLLECTIVE</h1>
       </div>
-
-      <div class="product">
-        <img src="prod-hoodie.jpg" alt="Heavy Hoodie" />
-        <h3>Heavy Hoodie</h3>
-        <p>₦40,000</p>
-        <button class="add-to-cart" data-name="Heavy Hoodie" data-price="40000">Add to Cart</button>
+      <div class="nav-right">
+        <a href="index.html">Home</a>
+        <a href="shop.html" class="active">Shop</a>
+        <a href="lookbook.html">Lookbook</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="join.html">Join</a>
       </div>
+    </header>
 
-      <div class="product">
-        <img src="prod-joggers.jpg" alt="Joggers" />
-        <h3>Joggers</h3>
-        <p>₦40,000</p>
-        <button class="add-to-cart" data-name="Double Layered Long Sleeve" data-price="40000">Add to Cart</button>
+    <!-- Shop Section -->
+    <section id="shop" class="shop-section">
+      <h2>Shop the Collective</h2>
+      <p class="muted">Wear the story. Live the vision.</p>
+
+      <div class="shop-grid">
+        <div class="product-card">
+          <img src="prod-tee.jpg" alt="Cropped Boxy Tee" />
+          <h3>Cropped Boxy Tee</h3>
+          <p>₦26,000</p>
+          <button class="buy-btn">Buy Now</button>
+        </div>
+
+        <div class="product-card">
+          <img src="prod-hoodie.jpg" alt="Heavy Hoodie" />
+          <h3>Heavy Hoodie</h3>
+          <p>₦40,000</p>
+          <button class="buy-btn">Buy Now</button>
+        </div>
+
+        <div class="product-card">
+          <img src="prod-jogger.jpg" alt="Joggers" />
+          <h3>DSY Joggers</h3>
+          <p>₦40,000</p>
+          <button class="buy-btn">Buy Now</button>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Cart Panel -->
-  <div id="cart-panel" class="hidden">
-    <h2>Your Cart</h2>
-    <ul id="cart-items"></ul>
-    <p>Total: ₦<span id="cart-total">0</span></p>
-    <button id="checkout-btn">Checkout</button>
-    <button id="close-cart">Close</button>
+    <!-- Footer -->
+    <footer>
+      <div class="footer-links">
+        <a href="shop.html">Shop</a>
+        <a href="lookbook.html">Lookbook</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <p>© 2025 DSY Collective. All rights reserved.</p>
+      <div class="socials">
+        <a href="https://instagram.com/dsy_collective" target="_blank">
+          <img src="instagram.png" alt="Instagram" />
+        </a>
+        <a href="https://www.tiktok.com/@dsy.collective" target="_blank">
+          <img src="tiktok.png" alt="TikTok" />
+        </a>
+      </div>
+    </footer>
   </div>
 
-  <!-- Footer -->
-  <footer>
-    <div class="footer-left">
-      <p>© 2025 DSY Collective. All rights reserved.</p>
-    </div>
-    <div class="footer-right">
-      <a href="https://instagram.com/dsy_collective" target="_blank">
-        <img src="instagram.png" alt="Instagram" />
-      </a>
-      <a href="https://www.tiktok.com/@dsy.collective" target="_blank">
-        <img src="tiktok.png" alt="TikTok" />
-      </a>
-    </div>
-  </footer>
+  <!-- Scripts -->
+  <script src="script.js"></script>
+  <script>
+    // Splash fade-out transition
+    window.addEventListener("load", () => {
+      const splash = document.getElementById("splash");
+      const site = document.getElementById("site");
+      setTimeout(() => {
+        splash.classList.add("hidden");
+        site.classList.remove("hidden");
+      }, 1500);
+    });
+  </script>
 </body>
 </html>
