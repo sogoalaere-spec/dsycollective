@@ -139,24 +139,62 @@ header a:hover { opacity: 0.6; }
   border-radius: 10px;
 }
 
-/* Contact */
+/* 💬 DSY Contact Page Styling — Glassy Cream Aesthetic */
 .contact-section {
-  padding: 80px 20px;
+  min-height: 100vh;
+  background: var(--bg, #090909);
+  color: var(--white, #fff);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 20px;
   text-align: center;
 }
+
+.contact-container {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(8px);
+  padding: 40px;
+  border-radius: 12px;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+}
+
+.contact-section h1 {
+  font-size: 2.2rem;
+  color: var(--cream, #d9c6a5);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+
 .contact-section .email {
   font-weight: 700;
-  color: var(--cream);
+  color: var(--cream, #d9c6a5);
   margin: 20px 0;
+  font-size: 1.1rem;
 }
+
+.socials {
+  margin-top: 25px;
+}
+
 .socials img {
-  width: 26px;
-  height: 26px;
+  width: 28px;
+  height: 28px;
   margin: 0 10px;
   filter: invert(1);
-  transition: transform 0.3s;
+  opacity: 0.8;
+  transition: all 0.3s ease;
 }
-.socials img:hover { transform: scale(1.2); }
+
+.socials img:hover {
+  transform: scale(1.2);
+  opacity: 1;
+}
+
 
 /* Footer */
 footer {
