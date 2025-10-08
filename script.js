@@ -164,23 +164,44 @@ if (cartBtn) {
   });
 });
 
-// 🧩 Inject Global Header
-fetch("header.html")
-  .then(response => response.text())
-  .then(data => {
-    document.getElementById("global-header").innerHTML = data;
-  })
-  .catch(err => console.error("Header failed to load:", err));
-document.addEventListener("DOMContentLoaded", () => {
-  const menuToggle = document.getElementById("menuToggle");
-  const menuPanel = document.getElementById("menuPanel");
-  const closeMenu = document.getElementById("closeMenu");
+// initHeader: attaches menu behaviour (call once header is in the DOM)
+function initHeader() {
+  const menuToggle = document.getElementById('menuToggle');
+  const menuPanel = document.getElementById('menuPanel');
+  const closeMenu = document.getElementById('closeMenu');
+  const overlay = document.getElementById('menuOverlay');
 
-  menuToggle.addEventListener("click", () => {
-    menuPanel.classList.add("active");
-  });
+  if (!menuToggle || !menuPanel) return; // fail-safes
 
-  closeMenu.addEventListener("click", () => {
-    menuPanel.classList.remove("active");
+  function openMenu() {
+    menuPanel.classList.add('active');
+    overlay.classList.add('active');
+    menuPanel.setAttribute('aria-hidden', 'false');
+    overlay.setAttribute('aria-hidden', 'false');
+    // lock scroll
+    document.documentElement.style.overflow = 'hidden';
+  }
+  function closeMenu() {
+    menuPanel.classList.remove('active');
+    overlay.classList.remove('active');
+    menuPanel.setAttribute('aria-hidden', 'true');
+    overlay.setAttribute('aria-hidden', 'true');
+    document.documentElement.style.overflow = '';
+  }
+
+  menuToggle.addEventListener('click', openMenu);
+  if (closeMenu) closeMenu.addEventListener('click', closeMenu);
+  if (overlay) overlay.addEventListener('click', closeMenu);
+
+  // keyboard ESC to close
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMenu();
   });
+}
+
+// if header is written directly into the page, init after DOM loaded
+document.addEventListener('DOMContentLoaded', () => {
+  // try to initialize header in case header HTML is already present
+  initHeader();
 });
+
