@@ -509,3 +509,65 @@ header .logo {
   width: 100%;
   padding-top: 30px;
 }
+
+/* 📱 Responsive Contact Page */
+@media (max-width: 768px) {
+  .contact-container {
+    padding: 25px;
+    width: 90%;
+  }
+
+  .contact-section h1 {
+    font-size: 1.8rem;
+  }
+
+  .contact-section .email {
+    font-size: 1rem;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 0.95rem;
+    padding: 10px;
+  }
+
+  .contact-form button {
+    font-size: 0.95rem;
+    padding: 10px;
+  }
+
+  .socials img {
+    width: 24px;
+    height: 24px;
+    margin: 0 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-section {
+    padding: 80px 15px;
+  }
+
+  .contact-container {
+    padding: 20px;
+  }
+
+  .contact-section h1 {
+    font-size: 1.6rem;
+    letter-spacing: 0.5px;
+  }
+
+  .contact-form {
+    gap: 10px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 0.9rem;
+  }
+
+  .contact-form button {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+}
