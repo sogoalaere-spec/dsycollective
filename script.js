@@ -171,3 +171,16 @@ fetch("header.html")
     document.getElementById("global-header").innerHTML = data;
   })
   .catch(err => console.error("Header failed to load:", err));
+document.addEventListener("DOMContentLoaded", () => {
+  const menuToggle = document.getElementById("menuToggle");
+  const menuPanel = document.getElementById("menuPanel");
+  const closeMenu = document.getElementById("closeMenu");
+
+  menuToggle.addEventListener("click", () => {
+    menuPanel.classList.add("active");
+  });
+
+  closeMenu.addEventListener("click", () => {
+    menuPanel.classList.remove("active");
+  });
+});
