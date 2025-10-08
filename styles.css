@@ -48,78 +48,100 @@ body {
   filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.6));
 }
 
-/* 🌹 DSY Global Header */
+/* Header Base */
 header {
   width: 100%;
-  background-color: #c81414; /* red header */
-  position: sticky;
+  background: #d50000; /* red header */
+  color: #fff;
+  padding: 20px 30px;
+  position: fixed;
   top: 0;
+  left: 0;
   z-index: 1000;
 }
 
+/* Header container */
 .header-container {
   display: flex;
-  justify-content: center;
   align-items: center;
-  padding: 18px 24px;
+  justify-content: space-between;
   position: relative;
 }
 
+/* Logo */
 .logo {
-  height: 50px;
-  cursor: pointer;
+  height: 60px;
+  width: auto;
+  display: block;
+  margin: 0 auto;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-/* 🍔 Hamburger Menu Button */
+/* Menu Button (Hamburger) */
 .menu-btn {
-  position: absolute;
-  right: 25px;
   background: none;
   border: none;
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  gap: 5px;
-  padding: 5px;
+  justify-content: space-between;
+  width: 28px;
+  height: 20px;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  z-index: 1100;
 }
 
 .menu-btn span {
   display: block;
-  width: 24px;
-  height: 2px;
-  background: #fff;
+  height: 3px;
+  width: 100%;
+  background: white;
   border-radius: 2px;
   transition: 0.3s;
 }
 
-/* 📜 Sleek DSY Slide-Out Menu */
+/* Slide-out Menu */
 .menu-panel {
   position: fixed;
   top: 0;
   right: -100%;
   width: 70%;
   height: 100%;
-  background: linear-gradient(145deg, rgba(0,0,0,0.95) 70%, rgba(200,20,20,0.9));
-  backdrop-filter: blur(10px);
-  border-left: 2px solid rgba(255,255,255,0.05);
-  box-shadow: -10px 0 25px rgba(0,0,0,0.6);
-  transition: right 0.4s ease;
+  background: #000;
+  color: white;
+  transition: right 0.4s ease-in-out;
+  padding: 60px 30px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  padding: 60px 20px;
-  z-index: 2000;
+  justify-content: flex-start;
+  z-index: 1050;
 }
 
 .menu-panel.active {
   right: 0;
 }
 
+/* Close Button */
+.close-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+
+/* Menu Links */
 .menu-panel ul {
   list-style: none;
   padding: 0;
-  margin: 0;
-  width: 100%;
+  margin-top: 80px;
 }
 
 .menu-panel ul li {
@@ -127,15 +149,15 @@ header {
 }
 
 .menu-panel ul li a {
-  color: #fff;
-  font-weight: 600;
+  color: white;
   text-decoration: none;
   font-size: 1.2rem;
+  font-weight: 700;
   transition: color 0.3s ease;
 }
 
 .menu-panel ul li a:hover {
-  color: #c81414;
+  color: #d50000; /* red accent on hover */
 }
 
 /* ❌ Close Button */
