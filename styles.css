@@ -251,68 +251,65 @@ header {
 /* ✉️ Sleek Contact Page */
 .contact-page {
   min-height: 100vh;
-  background: var(--bg, #090909);
+  background: #000;
+  color: #fff;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 100px 20px;
-  color: var(--white, #fff);
 }
 
 .contact-container {
-  background: rgba(255,255,255,0.03);
-  backdrop-filter: blur(10px);
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(8px);
   border-radius: 12px;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.6);
-  max-width: 480px;
+  box-shadow: 0 10px 40px rgba(225,0,0,0.15);
+  max-width: 500px;
   width: 100%;
-  padding: 40px 30px;
+  padding: 40px;
   text-align: center;
 }
 
 .contact-container h1 {
-  font-size: 2rem;
-  color: var(--cream, #d9c6a5);
-  margin-bottom: 10px;
+  font-size: 2.3rem;
+  color: #ff3333;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
 }
 
-.contact-container p {
-  color: #bbb;
-  margin-bottom: 20px;
-}
 
-.contact-container form {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.contact-container input,
-.contact-container textarea {
-  padding: 12px;
-  border-radius: 8px;
-  border: 1px solid rgba(255,255,255,0.1);
-  background: rgba(255,255,255,0.05);
-  color: #fff;
-  font-size: 1rem;
-}
-
-.contact-container button {
-  background: var(--cream, #d9c6a5);
-  color: #000;
-  border: none;
-  padding: 12px;
+.contact-section .email {
   font-weight: 700;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s ease;
+  color: var(--white, #fff);
+  margin: 20px 0;
+  font-size: 1.1rem;
 }
 
-.contact-container button:hover {
-  background: #fff;
-  transform: translateY(-2px);
+.contact-section p {
+  color: #ccc; /* softer gray tone for text */
+  font-size: 1rem;
+  margin-bottom: 15px;
 }
 
+/* If you have buttons or links */
+.contact-section a {
+  color: var(--accent, #ff3333);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.contact-section a:hover {
+  color: #fff;
+}
+
+/* Optional: subtle hover glow for the email link */
+.contact-section .email:hover {
+  color: #ff3333;
+  transition: color 0.3s ease;
+}
 .contact-socials {
   margin-top: 25px;
 }
