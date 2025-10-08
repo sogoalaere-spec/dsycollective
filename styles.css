@@ -291,6 +291,8 @@ footer {
 .cart-icon {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  position:relative; 
   gap: 6px;
   background: rgba(255, 255, 255, 0.05);
   padding: 8px 12px;
@@ -311,7 +313,7 @@ footer {
 
 #cartCount {
   position: absolute;
-  top: -6px;
+  top: -4px;
   right: -6px;
   background: var(--cream, #d9c6a5);
   color: #000;
@@ -319,7 +321,7 @@ footer {
   font-weight: bold;
   border-radius: 50%;
   padding: 2px 6px;
-  line-height: 0;
+  line-height: 1;
 }
 
 
