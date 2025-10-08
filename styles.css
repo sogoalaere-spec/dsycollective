@@ -67,10 +67,20 @@ header {
   position: relative;
 }
 
-header img.logo {
-  height: 18px;
-  width: auto;
-  object-fit: contain;
+.logo-text {
+  font-family: "Bebas Neue", "Anton", "Poppins", sans-serif; /* streetwear-style fonts */
+  font-size: 22px;
+  letter-spacing: 2px;
+  font-weight: 700;
+  color: #f5f5f5; /* or white if your header is dark */
+  text-transform: uppercase;
+  margin: 0;
+  cursor: pointer;
+}
+
+.logo-text:hover {
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
 }
 
 /* Hamburger menu button */
