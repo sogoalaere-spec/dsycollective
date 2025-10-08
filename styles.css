@@ -48,142 +48,99 @@ body {
   filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.6));
 }
 
-/* ========== DSY Header & Slide-out ========== */
-:root {
-  --dsy-red: #e50914;
-  --dsy-black: #0a0a0a;
-  --dsy-white: #ffffff;
-}
-
-/* header */
-.site-header {
+/* HEADER */
+header {
+  background: red;
+  color: white;
+  padding: 12px 0;
+  text-align: center;
   position: fixed;
   top: 0;
-  left: 0;
   width: 100%;
-  background: var(--dsy-red);
-  z-index: 1200;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.25);
+  z-index: 1000;
 }
 
-/* container aligns content and centers logo */
 .header-container {
-  height: 72px;                      /* consistent header height */
   display: flex;
+  justify-content: center;
   align-items: center;
-  justify-content: center;           /* logo centered */
   position: relative;
-  padding: 0 20px;
 }
 
-/* logo sizing - keep it visible but not blown up */
 .logo {
-  max-height: 48px;                  /* control logo size */
+  height: 50px;
   width: auto;
-  display: block;
 }
 
-/* hamburger (top-right) */
+/* Hamburger menu button */
 .menu-btn {
   position: absolute;
-  right: 18px;
-  top: 50%;
-  transform: translateY(-50%);
-  background: transparent;
-  border: none;
-  width: 34px;
-  height: 24px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 0;
-  cursor: pointer;
-  z-index: 1250;
-}
-.menu-btn span {
-  display: block;
-  height: 3px;
-  width: 100%;
-  background: var(--dsy-white);
-  border-radius: 2px;
-  transition: transform 0.25s ease, opacity 0.25s ease;
-}
-
-/* slide-out menu panel */
-.menu-panel {
-  position: fixed;
-  top: 0;
-  right: -100%;
-  width: 78%;
-  max-width: 340px;
-  height: 100vh;
-  background: linear-gradient(145deg, rgba(0,0,0,0.96), rgba(20,0,0,0.95));
-  color: var(--dsy-white);
-  padding: 60px 24px;
-  transition: right 0.34s cubic-bezier(.2,.9,.2,1);
-  z-index: 1300;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  overflow-y: auto;
-}
-.menu-panel.active {
-  right: 0;
-}
-.menu-panel .close-btn {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  background: transparent;
-  border: none;
-  color: var(--dsy-white);
-  font-size: 30px;
-  cursor: pointer;
-}
-
-/* menu list */
-.menu-panel ul { list-style: none; padding: 0; margin-top: 30px; width: 100%; }
-.menu-panel li { margin: 18px 0; }
-.menu-panel a {
-  color: var(--dsy-white);
-  font-weight: 700;
-  font-size: 1.05rem;
-  text-decoration: none;
-}
-.menu-panel a:hover { color: var(--dsy-red); }
-
-/* overlay */
-.menu-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.5);
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.28s ease;
-  z-index: 1280;
-}
-.menu-overlay.active {
-  opacity: 1;
-  visibility: visible;
-}
-
-/* responsive tweaks (smaller screens) */
-@media (max-width: 480px) {
-  .header-container { height: 64px; }
-  .logo { max-height: 44px; }
-  .menu-panel { width: 82%; max-width: 320px; padding: 50px 18px; }
-}
-
-
-/* ❌ Close Button */
-.close-btn {
-  position: absolute;
-  top: 20px;
   right: 20px;
   background: none;
   border: none;
-  color: #fff;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 20px;
+}
+
+.menu-btn span {
+  display: block;
+  width: 26px;
+  height: 3px;
+  background: white;
+  border-radius: 3px;
+}
+
+/* Menu Panel */
+.menu-panel {
+  position: fixed;
+  top: 0;
+  right: -300px;
+  width: 250px;
+  height: 100vh;
+  background: black;
+  color: white;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition: right 0.4s ease;
+  z-index: 999;
+}
+
+.menu-panel.active {
+  right: 0;
+}
+
+.menu-panel ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-panel li {
+  margin: 12px 0;
+}
+
+.menu-panel a {
+  color: white;
+  font-weight: bold;
+  font-size: 1.1rem;
+  text-decoration: none;
+}
+
+.menu-panel a:hover {
+  color: red;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: white;
   font-size: 2rem;
+  align-self: flex-end;
   cursor: pointer;
 }
 
