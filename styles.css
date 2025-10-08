@@ -67,9 +67,10 @@ header {
   position: relative;
 }
 
-.logo {
+header img.logo {
   height: 18px;
-  width: 18px;
+  width: auto;
+  object-fit: contain;
 }
 
 /* Hamburger menu button */
