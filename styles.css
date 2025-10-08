@@ -67,27 +67,20 @@ header {
   position: relative;
 }
 
-.logo-text {
-  font-family: "Bebas Neue", "Anton", "Poppins", sans-serif; /* streetwear-style fonts */
-  font-size: 22px;
-  letter-spacing: 2px;
-  font-weight: 700;
-  color: #f5f5f5; /* or white if your header is dark */
-  text-transform: uppercase;
-  margin: 0;
-  cursor: pointer;
+.logo-text a {
+  color: #fff;              /* makes the text white */
+  text-decoration: none;    /* removes underline */
+  font-weight: bold;        /* keeps it strong like a logo */
 }
 
-.logo-text:hover {
-  opacity: 0.8;
-  transition: opacity 0.2s ease;
+.logo-text a:hover {
+  color: #ddd;              /* optional: slightly lighter on hover */
 }
 
-.logo-link a:visited,
-.logo-link a:active,
-.logo-link a:hover {
-  text-decoration: none;
-  color: inherit;
+.logo-text a:visited,
+.logo-text a:active {
+  color: #fff;              /* keep it white even when clicked */
+  text-decoration: none;    /* keep it clean */
 }
 
 /* Hamburger menu button */
