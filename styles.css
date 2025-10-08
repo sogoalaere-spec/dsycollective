@@ -83,7 +83,9 @@ header {
   transition: opacity 0.2s ease;
 }
 
-.logo-link {
+.logo-link a:visited,
+.logo-link a:active,
+.logo-link a:hover {
   text-decoration: none;
   color: inherit;
 }
