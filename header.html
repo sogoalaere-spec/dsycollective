@@ -22,3 +22,22 @@
     </nav>
   </div>
 </header>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const menuToggle = document.getElementById('menuToggle');
+    const menuPanel = document.getElementById('menuPanel');
+    const closeMenu = document.getElementById('closeMenu');
+
+    if (menuToggle && menuPanel) {
+      menuToggle.addEventListener('click', () => {
+        menuPanel.classList.toggle('active');
+      });
+    }
+
+    if (closeMenu) {
+      closeMenu.addEventListener('click', () => {
+        menuPanel.classList.remove('active');
+      });
+    }
+  });
+</script>
