@@ -1,24 +1,24 @@
-<!-- header.html -->
-<header class="site-header">
+<header>
   <div class="header-container">
     <img src="logo.png" alt="DSY Collective Logo" class="logo" />
 
-    <button id="menuToggle" class="menu-btn" aria-label="Open menu">
-      <span></span><span></span><span></span>
+    <!-- Hamburger Menu Button -->
+    <button id="menuToggle" class="menu-btn" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
     </button>
+
+    <!-- Slide-Out Navigation -->
+    <nav id="menuPanel" class="menu-panel">
+      <button id="closeMenu" class="close-btn">&times;</button>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="lookbook.html">Lookbook</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="join.html">Join</a></li>
+      </ul>
+    </nav>
   </div>
-
-  <!-- slide panel and overlay are kept outside the header container, but in the fragment -->
-  <nav id="menuPanel" class="menu-panel" aria-hidden="true">
-    <button id="closeMenu" class="close-btn" aria-label="Close menu">&times;</button>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="lookbook.html">Lookbook</a></li>
-      <li><a href="shop.html">Shop</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="join.html">Join</a></li>
-    </ul>
-  </nav>
-
-  <div id="menuOverlay" class="menu-overlay" tabindex="-1" aria-hidden="true"></div>
 </header>
