@@ -164,44 +164,34 @@ if (cartBtn) {
   });
 });
 
-// initHeader: attaches menu behaviour (call once header is in the DOM)
-function initHeader() {
-  const menuToggle = document.getElementById('menuToggle');
-  const menuPanel = document.getElementById('menuPanel');
-  const closeMenu = document.getElementById('closeMenu');
-  const overlay = document.getElementById('menuOverlay');
+// ✅ Load global header
+document.addEventListener("DOMContentLoaded", async () => {
+  const headerContainer = document.getElementById("global-header");
 
-  if (!menuToggle || !menuPanel) return; // fail-safes
+  if (headerContainer) {
+    try {
+      const response = await fetch("header.html");
+      const html = await response.text();
+      headerContainer.innerHTML = html;
 
-  function openMenu() {
-    menuPanel.classList.add('active');
-    overlay.classList.add('active');
-    menuPanel.setAttribute('aria-hidden', 'false');
-    overlay.setAttribute('aria-hidden', 'false');
-    // lock scroll
-    document.documentElement.style.overflow = 'hidden';
+      // Now that header is loaded, enable the menu logic
+      const menuToggle = document.getElementById("menuToggle");
+      const menuPanel = document.getElementById("menuPanel");
+      const closeMenu = document.getElementById("closeMenu");
+
+      if (menuToggle && menuPanel) {
+        menuToggle.addEventListener("click", () => {
+          menuPanel.classList.toggle("active");
+        });
+      }
+
+      if (closeMenu) {
+        closeMenu.addEventListener("click", () => {
+          menuPanel.classList.remove("active");
+        });
+      }
+    } catch (err) {
+      console.error("Header failed to load:", err);
+    }
   }
-  function closeMenu() {
-    menuPanel.classList.remove('active');
-    overlay.classList.remove('active');
-    menuPanel.setAttribute('aria-hidden', 'true');
-    overlay.setAttribute('aria-hidden', 'true');
-    document.documentElement.style.overflow = '';
-  }
-
-  menuToggle.addEventListener('click', openMenu);
-  if (closeMenu) closeMenu.addEventListener('click', closeMenu);
-  if (overlay) overlay.addEventListener('click', closeMenu);
-
-  // keyboard ESC to close
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeMenu();
-  });
-}
-
-// if header is written directly into the page, init after DOM loaded
-document.addEventListener('DOMContentLoaded', () => {
-  // try to initialize header in case header HTML is already present
-  initHeader();
 });
-
