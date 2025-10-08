@@ -48,117 +48,132 @@ body {
   filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.6));
 }
 
-/* Header Base */
-header {
-  width: 100%;
-  background: #d50000; /* red header */
-  color: #fff;
-  padding: 20px 30px;
+/* ========== DSY Header & Slide-out ========== */
+:root {
+  --dsy-red: #e50914;
+  --dsy-black: #0a0a0a;
+  --dsy-white: #ffffff;
+}
+
+/* header */
+.site-header {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1000;
+  width: 100%;
+  background: var(--dsy-red);
+  z-index: 1200;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.25);
 }
 
-/* Header container */
+/* container aligns content and centers logo */
 .header-container {
+  height: 72px;                      /* consistent header height */
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;           /* logo centered */
   position: relative;
+  padding: 0 20px;
 }
 
-/* Logo */
+/* logo sizing - keep it visible but not blown up */
 .logo {
-  height: 60px;
+  max-height: 48px;                  /* control logo size */
   width: auto;
   display: block;
-  margin: 0 auto;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
 }
 
-/* Menu Button (Hamburger) */
+/* hamburger (top-right) */
 .menu-btn {
-  background: none;
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
   border: none;
-  cursor: pointer;
+  width: 34px;
+  height: 24px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 28px;
-  height: 20px;
-  position: absolute;
-  right: 20px;
-  top: 20px;
-  z-index: 1100;
+  padding: 0;
+  cursor: pointer;
+  z-index: 1250;
 }
-
 .menu-btn span {
   display: block;
   height: 3px;
   width: 100%;
-  background: white;
+  background: var(--dsy-white);
   border-radius: 2px;
-  transition: 0.3s;
+  transition: transform 0.25s ease, opacity 0.25s ease;
 }
 
-/* Slide-out Menu */
+/* slide-out menu panel */
 .menu-panel {
   position: fixed;
   top: 0;
   right: -100%;
-  width: 70%;
-  height: 100%;
-  background: #000;
-  color: white;
-  transition: right 0.4s ease-in-out;
-  padding: 60px 30px;
+  width: 78%;
+  max-width: 340px;
+  height: 100vh;
+  background: linear-gradient(145deg, rgba(0,0,0,0.96), rgba(20,0,0,0.95));
+  color: var(--dsy-white);
+  padding: 60px 24px;
+  transition: right 0.34s cubic-bezier(.2,.9,.2,1);
+  z-index: 1300;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  z-index: 1050;
+  align-items: flex-start;
+  overflow-y: auto;
 }
-
 .menu-panel.active {
   right: 0;
 }
-
-/* Close Button */
-.close-btn {
-  background: none;
-  border: none;
-  color: white;
-  font-size: 2rem;
+.menu-panel .close-btn {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 12px;
+  right: 12px;
+  background: transparent;
+  border: none;
+  color: var(--dsy-white);
+  font-size: 30px;
   cursor: pointer;
 }
 
-/* Menu Links */
-.menu-panel ul {
-  list-style: none;
-  padding: 0;
-  margin-top: 80px;
-}
-
-.menu-panel ul li {
-  margin: 20px 0;
-}
-
-.menu-panel ul li a {
-  color: white;
-  text-decoration: none;
-  font-size: 1.2rem;
+/* menu list */
+.menu-panel ul { list-style: none; padding: 0; margin-top: 30px; width: 100%; }
+.menu-panel li { margin: 18px 0; }
+.menu-panel a {
+  color: var(--dsy-white);
   font-weight: 700;
-  transition: color 0.3s ease;
+  font-size: 1.05rem;
+  text-decoration: none;
+}
+.menu-panel a:hover { color: var(--dsy-red); }
+
+/* overlay */
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.28s ease;
+  z-index: 1280;
+}
+.menu-overlay.active {
+  opacity: 1;
+  visibility: visible;
 }
 
-.menu-panel ul li a:hover {
-  color: #d50000; /* red accent on hover */
+/* responsive tweaks (smaller screens) */
+@media (max-width: 480px) {
+  .header-container { height: 64px; }
+  .logo { max-height: 44px; }
+  .menu-panel { width: 82%; max-width: 320px; padding: 50px 18px; }
 }
+
 
 /* ❌ Close Button */
 .close-btn {
