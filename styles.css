@@ -379,6 +379,12 @@ footer {
 .footer-links a:hover {
   color: var(--cream);
 }
+footer .socials img {
+  width: 18px;
+  height: 18px;
+  margin: 0 8px;
+  filter: invert(1);
+}
 
 /* Responsive */
 @media (max-width: 900px) {
