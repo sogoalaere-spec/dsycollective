@@ -255,7 +255,7 @@ footer .socials img { width: 18px; height: 18px; margin: 0 8px; filter: invert(1
 .shop-cart {
   position: fixed;
   top: 18px;
-  right: 28px;
+  right: 80px;
   z-index: 1100;
 }
 .cart-icon { background: none; border: none; color: #fff; position: relative; cursor: pointer; display: flex; align-items: center; justify-content: center; }
@@ -264,7 +264,7 @@ footer .socials img { width: 18px; height: 18px; margin: 0 8px; filter: invert(1
 #cartCount { position: absolute; top: -6px; right: -8px; background: #ff3333; color: white; font-size: 11px; font-weight: 600; border-radius: 50%; padding: 2px 6px; }
 
 /* Responsive */
-@media (max-width: 900px) {
+@media (max-width: 768px) {
   header { flex-direction: column; padding: 14px 20px; }
   .hero { padding: 6rem 1.5rem; }
   .shop-grid, .lookbook-gallery { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
