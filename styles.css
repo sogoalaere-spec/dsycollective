@@ -132,9 +132,23 @@ header {
 .cta-btn:hover { background: var(--cream); }
 
 /* 🔥 DSY Lookbook — Fixed Compact Image Grid */
-.lookbook {
-  padding: 120px 20px 80px;
+.lookbook-hero {
   text-align: center;
+  padding: 160px 20px 80px;
+}
+.lookbook-hero h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+}
+.lookbook-hero p {
+  color: #ccc;
+  font-size: 1.1rem;
+  maw-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
 }
 
 .lookbook-grid {
