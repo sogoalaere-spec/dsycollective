@@ -58,6 +58,7 @@ header {
   top: 0;
   width: 100%;
   z-index: 1000;
+  transition: transform 0.4s ease;
 }
 
 .header-container {
@@ -388,6 +389,41 @@ header {
   }
 }
 
+/* 🧾 Fix Join Page Input + Button Layout */
+.section.join form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.section.join input {
+  flex: 1 1 260px;
+  max-width: 320px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.05);
+  color: #fff;
+  font-size: 1rem;
+}
+
+.section.join button {
+  padding: 12px 20px;
+  background: #ff3333;
+  color: #fff;
+  border-radius: 8px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.section.join button:hover {
+  background: #fff;
+  color: #000;
+}
 
 /* Footer */
 footer {
@@ -518,61 +554,47 @@ footer .socials img {
 }
 #cartPanel:not(.hidden) { display: block; }
 
-/* 🛒 Fix cart icon visibility */
-.cart-icon svg {
-  stroke: var(--white, #ffffff);
-  width: 22px;
-  height: 22px;
+/* 🛒 Cart Icon Position Fix */
+.shop-cart {
+  position: fixed;
+  top: 22px;
+  right: 28px;
+  z-index: 900;
 }
 
 .cart-icon {
-  display: flex;
-  align-items: center;
-  right: 25px;
-  top: 50%;
-  transform: translateY(-50%);
-  position: absolute; 
-  gap: 6px;
-  background: transparent;
+  background: none;
   border: none;
-  color: white;
+  color: #fff;
+  position: relative;
   cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.cart-icon:hover {
-  background: rgba(255, 255, 255, 0.15);
-}
-
-.cart-icon span {
-   font-size: 13px;
-  background: white;
-  color: red;
-  border-radius: 50%;
-  width: 18px;
-  height: 18px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: bold;
-  position: relative;
-  top: -4px;
-  right: -3px;
+}
+
+.cart-icon svg {
+  width: 24px;
+  height: 24px;
+  stroke: #fff;
+  transition: transform 0.2s ease;
+}
+
+.cart-icon:hover svg {
+  transform: scale(1.1);
 }
 
 #cartCount {
   position: absolute;
-  top: -4px;
-  right: -6px;
-  background: #000;
-  color: #fff;
-  font-size: 0.75rem;
-  font-weight: bold;
+  top: -6px;
+  right: -8px;
+  background: #ff3333;
+  color: white;
+  font-size: 11px;
+  font-weight: 600;
   border-radius: 50%;
   padding: 2px 6px;
-  line-height: 1;
 }
-
 
 /* 🧭 Navigation active link highlight */
 nav a.active {
