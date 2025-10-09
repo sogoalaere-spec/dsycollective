@@ -195,3 +195,16 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
   }
 });
+// 🎢 Hide header on scroll down, show on scroll up
+let lastScrollY = window.scrollY;
+const header = document.querySelector("header");
+
+window.addEventListener("scroll", () => {
+  if (!header) return;
+  if (window.scrollY > lastScrollY) {
+    header.style.transform = "translateY(-100%)";
+  } else {
+    header.style.transform = "translateY(0)";
+  }
+  lastScrollY = window.scrollY;
+});
