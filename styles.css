@@ -561,8 +561,8 @@ nav a.active {
 /* 💳 DSY Checkout Page Styling */
 .checkout-page {
   min-height: 100vh;
-  background: var(--bg, #090909);
-  color: var(--white, #fff);
+  background: #000;
+  color: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -575,7 +575,7 @@ nav a.active {
   font-size: 2.2rem;
   margin-bottom: 1rem;
   letter-spacing: 1px;
-  color: var(--cream, #d9c6a5);
+  color: #d32f2f;
   text-transform: uppercase;
 }
 
@@ -602,13 +602,13 @@ nav a.active {
   display: flex;
   justify-content: space-between;
   font-size: 0.95rem;
-  color: var(--muted, #bdbdbd);
+  color: #bdbdbd;
 }
 
 #checkout-summary p {
   margin-top: 16px;
   font-size: 1.1rem;
-  color: var(--cream, #d9c6a5);
+  color: #d32f2f;
 }
 
 #checkout-form {
@@ -628,12 +628,12 @@ nav a.active {
 }
 
 #checkout-form input::placeholder {
-  color: #bbb;
+  color: #aaa;
 }
 
 #checkout-form button {
-  background: var(--cream, #d9c6a5);
-  color: #000;
+  background: #d32f2f;
+  color: #fff;
   border: none;
   padding: 12px;
   font-weight: 700;
@@ -648,7 +648,7 @@ nav a.active {
 }
 
 header .logo {
-  color: var(--cream, #d9c6a5);
+  color: #fff;
   font-size: 1.2rem;
   font-weight: 700;
   text-transform: uppercase;
