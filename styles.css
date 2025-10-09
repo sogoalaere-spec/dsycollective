@@ -804,3 +804,21 @@ header .logo {
     font-size: 0.9rem;
   }
 }
+/* 🛍 Cart Icon Position Refinement (Shop Page Only) */
+.shop-cart {
+  position: fixed;
+  top: 18px;            /* moves it slightly down from the header */
+  right: 28px;          /* keeps it away from screen edge */
+  z-index: 1100;        /* ensures it's always above menu */
+}
+
+header .logo-text {
+  margin-right: 50px;   /* creates a little breathing room from the cart icon */
+}
+
+@media (max-width: 768px) {
+  .shop-cart {
+    top: 16px;
+    right: 18px;
+  }
+}
