@@ -50,7 +50,7 @@ body {
 
 /* HEADER */
 header {
-  background: red;
+  background: #090909;
   color: white;
   padding: 12px 0;
   text-align: center;
@@ -69,19 +69,19 @@ header {
 }
 
 .logo-text a {
-  color: #fff;              /* makes the text white */
-  text-decoration: none;    /* removes underline */
-  font-weight: bold;        /* keeps it strong like a logo */
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 .logo-text a:hover {
-  color: #ddd;              /* optional: slightly lighter on hover */
+  color: #ddd;
 }
 
 .logo-text a:visited,
 .logo-text a:active {
-  color: #fff;              /* keep it white even when clicked */
-  text-decoration: none;    /* keep it clean */
+  color: #fff;
+  text-decoration: none;
 }
 
 /* Hamburger menu button */
@@ -122,9 +122,7 @@ header {
   z-index: 999;
 }
 
-.menu-panel.active {
-  right: 0;
-}
+.menu-panel.active { right: 0; }
 
 .menu-panel ul {
   list-style: none;
@@ -132,9 +130,7 @@ header {
   margin: 0;
 }
 
-.menu-panel li {
-  margin: 12px 0;
-}
+.menu-panel li { margin: 12px 0; }
 
 .menu-panel a {
   color: white;
@@ -143,9 +139,7 @@ header {
   text-decoration: none;
 }
 
-.menu-panel a:hover {
-  color: red;
-}
+.menu-panel a:hover { color: red; }
 
 .close-btn {
   background: none;
@@ -201,6 +195,7 @@ header {
   object-fit: cover;
   border-radius: 10px;
 }
+
 /* 🧩 Shop Page Adjustments */
 .shop-section {
   max-width: 1200px;
@@ -212,7 +207,7 @@ header {
   font-size: 1.8rem;
 }
 
-.product-grid {
+.shop-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 25px;
@@ -282,7 +277,7 @@ header {
   font-size: 2.2rem;
   margin-bottom: 1rem;
   letter-spacing: 1px;
-  color: #ff3333; /* Red accent */
+  color: #ff3333;
   text-transform: uppercase;
 }
 
@@ -300,6 +295,7 @@ header {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  margin-top: 1rem;
 }
 
 .contact-page input,
@@ -376,19 +372,6 @@ header {
   font-weight: 600;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .contact-container,
-  .section.join .container {
-    padding: 30px 20px;
-  }
-
-  .contact-page h1,
-  .section.join h2 {
-    font-size: 1.8rem;
-  }
-}
-
 /* 🧾 Fix Join Page Input + Button Layout */
 .section.join form {
   display: flex;
@@ -450,64 +433,8 @@ footer .socials img {
   filter: invert(1);
 }
 
-/* Responsive */
-@media (max-width: 900px) {
-  header {
-    flex-direction: column;
-    padding: 12px 20px;
-  }
-  .hero {
-    padding: 6rem 1.5rem;
-  }
-  .shop-grid, .lookbook-gallery {
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  }
-}
-/* ------------------------------------------------------------- */
-/* 🌼 DSY Collective Additions (fade effects, cart, polish)      */
-/* ------------------------------------------------------------- */
-
-/* 🌸 Splash animation */
-.splash {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: var(--bg, #000);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-  opacity: 1;
-  transition: opacity 1s ease-in-out;
-}
-.splash.hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-.splash-logo {
-  width: 180px;
-  max-width: 70%;
-  filter: drop-shadow(0 8px 24px rgba(0,0,0,0.6));
-  animation: float 3s ease-in-out infinite;
-}
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
-}
-
-/* 🌫 Fade-in sections */
-.fade-in {
-  opacity: 0;
-  transform: translateY(10px);
-  transition: opacity 1s ease-out, transform 1s ease-out;
-}
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 /* 🛒 Cart panel enhancements */
-#cartPanel {
+#cart-panel {
   position: fixed;
   top: 100px;
   right: 20px;
@@ -520,23 +447,23 @@ footer .socials img {
   z-index: 1000;
   display: none;
 }
-#cartPanel h2 {
+#cart-panel h2 {
   margin-bottom: 10px;
   font-size: 1.2rem;
   letter-spacing: 0.5px;
 }
-#cartPanel ul {
+#cart-panel ul {
   list-style: none;
   padding: 0;
   margin: 10px 0;
   max-height: 220px;
   overflow-y: auto;
 }
-#cartPanel p {
+#cart-panel p {
   margin: 6px 0;
   font-weight: 500;
 }
-#cartPanel button {
+#cart-panel button {
   margin-top: 10px;
   padding: 10px 16px;
   background: var(--white, #fff);
@@ -548,11 +475,11 @@ footer .socials img {
   width: 100%;
   transition: background 0.3s;
 }
-#cartPanel button:hover {
+#cart-panel button:hover {
   background: var(--cream, #d9c6a5);
   color: #000;
 }
-#cartPanel:not(.hidden) { display: block; }
+#cart-panel:not(.hidden) { display: block; }
 
 /* 🛒 Cart Icon Position Fix */
 .shop-cart {
@@ -596,53 +523,27 @@ footer .socials img {
   padding: 2px 6px;
 }
 
-/* 🧭 Navigation active link highlight */
-nav a.active {
-  color: var(--cream, #d9c6a5);
-  font-weight: 600;
-}
-
-/* ✨ Button hover glow */
-.btn, button {
-  transition: all 0.3s ease;
-}
-.btn:hover, button:hover {
-  filter: brightness(1.2);
-  transform: translateY(-2px);
-}
-
-/* 🧠 Utility (muted text + small) */
-.muted { color: var(--muted, #bdbdbd); }
-.small { font-size: 0.85rem; }
-
-/* 🧩 Responsive polish */
+/* Responsive */
 @media (max-width: 900px) {
   header {
     flex-direction: column;
     padding: 14px 20px;
   }
-  header .brand {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
+  .hero {
+    padding: 6rem 1.5rem;
   }
-  .nav-right {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    justify-content: center;
+  .shop-grid, .lookbook-gallery {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   }
-  #cartPanel {
+  #cart-panel {
     top: auto;
     bottom: 20px;
     right: 10px;
     left: 10px;
     width: auto;
   }
-  .socials img {
-    width: 18px;
-    height: 18px;
-  }
 }
+
 /* 💳 DSY Checkout Page Styling */
 .checkout-page {
   min-height: 100vh;
@@ -743,67 +644,6 @@ header .logo {
   padding-top: 30px;
 }
 
-/* 📱 Responsive Contact Page */
-@media (max-width: 768px) {
-  .contact-container {
-    padding: 25px;
-    width: 90%;
-  }
-
-  .contact-section h1 {
-    font-size: 1.8rem;
-  }
-
-  .contact-section .email {
-    font-size: 1rem;
-  }
-
-  .contact-form input,
-  .contact-form textarea {
-    font-size: 0.95rem;
-    padding: 10px;
-  }
-
-  .contact-form button {
-    font-size: 0.95rem;
-    padding: 10px;
-  }
-
-  .socials img {
-    width: 18px;
-    height: 18px;
-    margin: 0 8px;
-  }
-}
-
-@media (max-width: 480px) {
-  .contact-section {
-    padding: 80px 15px;
-  }
-
-  .contact-container {
-    padding: 20px;
-  }
-
-  .contact-section h1 {
-    font-size: 1.6rem;
-    letter-spacing: 0.5px;
-  }
-
-  .contact-form {
-    gap: 10px;
-  }
-
-  .contact-form input,
-  .contact-form textarea {
-    font-size: 0.9rem;
-  }
-
-  .contact-form button {
-    padding: 10px;
-    font-size: 0.9rem;
-  }
-}
 /* 🛍 Cart Icon Position Refinement (Shop Page Only) */
 .shop-cart {
   position: fixed;
