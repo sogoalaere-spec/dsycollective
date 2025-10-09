@@ -248,83 +248,146 @@ header {
   margin-top: 8px;
 }
 
-/* ✉️ Sleek Contact Page */
-.contact-page {
+/* 💌 DSY Contact & Join Page Styling (Black / White / Red Theme) */
+.contact-page,
+.section.join {
   min-height: 100vh;
-  background: #000;
+  background: #090909;
   color: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 100px 20px;
+  padding: 100px 20px 60px;
+  text-align: center;
+  position: relative;
 }
 
-.contact-container {
-  background: rgba(255,255,255,0.05);
+/* Glassy container */
+.contact-container,
+.section.join .container {
+  background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(8px);
-  border-radius: 12px;
-  box-shadow: 0 10px 40px rgba(225,0,0,0.15);
+  padding: 40px 30px;
+  border-radius: 16px;
   max-width: 500px;
   width: 100%;
-  padding: 40px;
-  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
 }
 
-.contact-container h1 {
-  font-size: 2.3rem;
-  color: #ff3333;
-  text-transform: uppercase;
+/* Headings */
+.contact-page h1,
+.section.join h2 {
+  font-size: 2.2rem;
   margin-bottom: 1rem;
   letter-spacing: 1px;
+  color: #ff3333; /* Red accent */
+  text-transform: uppercase;
 }
 
-
-.contact-section .email {
-  font-weight: 700;
-  color: var(--white, #fff);
-  margin: 20px 0;
-  font-size: 1.1rem;
-}
-
-.contact-section p {
-  color: #ccc; /* softer gray tone for text */
+/* Paragraphs */
+.contact-page p,
+.section.join p {
+  color: #d0d0d0;
   font-size: 1rem;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
-/* If you have buttons or links */
-.contact-section a {
-  color: var(--accent, #ff3333);
-  text-decoration: none;
-  font-weight: 600;
-  transition: color 0.3s ease;
+/* Forms */
+.contact-page form,
+.section.join form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
-.contact-section a:hover {
+.contact-page input,
+.contact-page textarea,
+.section.join input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.05);
   color: #fff;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, background 0.3s ease;
 }
 
-/* Optional: subtle hover glow for the email link */
-.contact-section .email:hover {
-  color: #ff3333;
-  transition: color 0.3s ease;
-}
-.contact-socials {
-  margin-top: 25px;
+.contact-page input:focus,
+.contact-page textarea:focus,
+.section.join input:focus {
+  outline: none;
+  border-color: #ff3333;
+  background: rgba(255, 255, 255, 0.08);
 }
 
+/* Buttons */
+.contact-page button,
+.section.join button {
+  background: #ff3333;
+  color: #fff;
+  border: none;
+  padding: 14px;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+}
+
+.contact-page button:hover,
+.section.join button:hover {
+  background: #fff;
+  color: #000;
+  transform: translateY(-2px);
+}
+
+/* Social Icons */
 .contact-socials img {
-  width: 18px;
-  height: 18px;
-  margin: 0 8px;
+  width: 28px;
+  height: 28px;
+  margin: 10px;
   filter: invert(1);
-  transition: transform 0.3s;
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
-
 .contact-socials img:hover {
   transform: scale(1.2);
+  filter: invert(0) brightness(1.3);
 }
+
+/* Email link */
+.contact-page a {
+  color: #ff3333;
+  text-decoration: none;
+  font-weight: 600;
+}
+.contact-page a:hover {
+  text-decoration: underline;
+}
+
+/* Response Message */
+#join-response {
+  background: rgba(255, 255, 255, 0.06);
+  padding: 12px 20px;
+  border-radius: 6px;
+  color: #ff3333;
+  font-weight: 600;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contact-container,
+  .section.join .container {
+    padding: 30px 20px;
+  }
+
+  .contact-page h1,
+  .section.join h2 {
+    font-size: 1.8rem;
+  }
+}
+
 
 /* Footer */
 footer {
