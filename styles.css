@@ -132,7 +132,7 @@ header {
 .cta-btn:hover { background: var(--cream); }
 
 /* Lookbook */
-.lookbook { padding: 80px 20px; text-align: center; }
+.lookbook { padding: 120px 20px 80px; text-align: center; }
 .lookbook-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; margin-top: 40px; }
 .lookbook-gallery img { width: 100%; height: 320px; object-fit: cover; border-radius: 10px; }
 
