@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shop | DSY Collective</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="dark">
+  <div id="splash" class="splash"><img src="logo.png" alt="logo" class="splash-logo" /></div>
+  <div id="site" class="site hidden">
+    <div id="global-header"></div>
+
+    <!-- Cart Icon (Shop page only) -->
+    <div class="shop-cart">
+      <button id="cartBtn" class="cart-icon" title="View Cart">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="9" cy="21" r="1"></circle>
+          <circle cx="20" cy="21" r="1"></circle>
+          <path d="M1 1h4l2.68 13.39a1 1 0 0 0 .99.81H19a1 1 0 0 0 .97-.76l3-12H6"></path>
+        </svg>
+        <span id="cartCount">0</span>
+      </button>
+    </div>
+
+    <main>
+      <section id="shop" class="shop-section fade-in">
+        <h2>Shop the Collection</h2>
+        <p class="muted">Timeless luxury pieces crafted for the modern creative.</p>
+
+        <div class="shop-grid">
+          <div class="product-card" data-name="Classic Cropped Tee" data-price="26000">
+            <img src="prod-tee.jpg" alt="DSY Tee" />
+            <h3>Classic Cropped Tee</h3>
+            <p>₦26,000</p>
+            <button class="add-to-cart" data-name="Classic Cropped Tee" data-price="26000">Add to Cart</button>
+          </div>
+
+          <div class="product-card" data-name="Signature Hoodie" data-price="40000">
+            <img src="prod-hoodie.jpg" alt="DSY Hoodie" />
+            <h3>Signature Hoodie</h3>
+            <p>₦40,000</p>
+            <button class="add-to-cart" data-name="Signature Hoodie" data-price="40000">Add to Cart</button>
+          </div>
+
+          <div class="product-card" data-name="DSY Joggers" data-price="40000">
+            <img src="prod-jogger.jpg" alt="DSY Joggers" />
+            <h3>DSY Joggers</h3>
+            <p>₦40,000</p>
+            <button class="add-to-cart" data-name="DSY Joggers" data-price="40000">Add to Cart</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Cart panel -->
+    <div id="cart-panel" class="hidden">
+      <h2>Your Cart</h2>
+      <ul id="cart-items"></ul>
+      <p class="cart-total">₦0</p>
+      <button id="close-cart" style="margin-top:10px;background:none;border:1px solid rgba(255,255,255,0.06);color:var(--white);padding:8px 12px;border-radius:6px;">Close</button>
+    </div>
+
+    <footer>
+      <div class="footer-links">
+        <a href="shop.html">Shop</a>
+        <a href="lookbook.html">Lookbook</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <p>© 2025 DSY Collective. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <script src="https://js.paystack.co/v1/inline.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

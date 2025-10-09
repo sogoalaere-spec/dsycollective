@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Checkout | DSY Collective</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="dark">
+  <div id="splash" class="splash"><img src="logo.png" alt="logo" class="splash-logo" /></div>
+  <div id="site" class="site hidden">
+    <div id="global-header"></div>
+
+    <main class="checkout-page">
+      <h1>Checkout</h1>
+
+      <div id="checkout-summary">
+        <ul id="checkout-items"></ul>
+        <p>Total: <strong id="checkout-total">₦0</strong></p>
+
+        <form id="checkout-form">
+          <input type="email" name="email" placeholder="Email for payment" required />
+          <button type="submit">Pay with Paystack</button>
+        </form>
+      </div>
+    </main>
+
+    <footer>
+      <div class="footer-links">
+        <a href="shop.html">Shop</a>
+        <a href="lookbook.html">Lookbook</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <p>© 2025 DSY Collective. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <script src="https://js.paystack.co/v1/inline.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
