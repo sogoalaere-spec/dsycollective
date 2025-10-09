@@ -195,16 +195,20 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
   }
 });
-// 🎢 Hide header on scroll down, show on scroll up
-let lastScrollY = window.scrollY;
+// 🧭 Hide Header on Scroll Down
+let lastScrollTop = 0;
 const header = document.querySelector("header");
 
 window.addEventListener("scroll", () => {
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
   if (!header) return;
-  if (window.scrollY > lastScrollY) {
+  if (scrollTop > lastScrollTop) {
+    // scrolling down → hide header
     header.style.transform = "translateY(-100%)";
   } else {
+    // scrolling up → show header
     header.style.transform = "translateY(0)";
   }
-  lastScrollY = window.scrollY;
+  lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // avoid negatives
 });
+
