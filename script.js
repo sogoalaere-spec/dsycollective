@@ -1,6 +1,5 @@
 /* DSY Collective — Unified Script (header, menu, cart, splash, fade) */
 document.addEventListener("DOMContentLoaded", async () => {
-  // Splash -> show site
   const splash = document.getElementById("splash");
   const site = document.getElementById("site");
   if (splash && site) {
@@ -10,15 +9,13 @@ document.addEventListener("DOMContentLoaded", async () => {
     }, 900);
   }
 
-  // Load global header (try fetch header.html, fallback to inline)
   const headerContainer = document.getElementById("global-header");
   if (headerContainer) {
     try {
       const res = await fetch("header.html");
       if (!res.ok) throw new Error("fetch failed");
       headerContainer.innerHTML = await res.text();
-    } catch (err) {
-      // fallback header (minimal)
+    } catch {
       headerContainer.innerHTML = `
         <header>
           <div class="header-container">
@@ -40,22 +37,17 @@ document.addEventListener("DOMContentLoaded", async () => {
       `;
     }
 
-    // menu logic
     const menuToggle = document.getElementById("menuToggle");
     const menuPanel = document.getElementById("menuPanel");
     const closeMenu = document.getElementById("closeMenu");
     menuToggle?.addEventListener("click", () => menuPanel?.classList.toggle("active"));
     closeMenu?.addEventListener("click", () => menuPanel?.classList.remove("active"));
-    // close menu when a link clicked
     menuPanel?.querySelectorAll("a")?.forEach(a => a.addEventListener("click", () => menuPanel.classList.remove("active")));
   }
 
-  // Smooth header hide on scroll
   const headerEl = document.querySelector("header");
   if (headerEl) {
-    let lastScrollTop = 0;
-    let ticking = false;
-    const delta = 10;
+    let lastScrollTop = 0, ticking = false, delta = 10;
     const handleScroll = () => {
       const st = window.pageYOffset || document.documentElement.scrollTop;
       if (st > lastScrollTop + delta) headerEl.style.transform = "translateY(-100%)";
@@ -73,7 +65,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     headerEl.style.transition = "transform 0.35s ease";
   }
 
-  // Fade-in using IntersectionObserver
   const faders = document.querySelectorAll(".fade-in");
   if (faders.length) {
     const obs = new IntersectionObserver((entries) => {
@@ -84,15 +75,13 @@ document.addEventListener("DOMContentLoaded", async () => {
     faders.forEach(el => obs.observe(el));
   }
 
-  /* ===========================
-     CART (works across pages)
-     =========================== */
+  /* CART */
   const CART_KEY = "dsyCart_v1";
   let cart = JSON.parse(localStorage.getItem(CART_KEY) || "[]");
 
   const cartPanel = document.getElementById("cart-panel");
   const cartItemsEl = document.getElementById("cart-items");
-  const cartTotalEl = document.getElementById("cart-total");
+  const cartTotalEl = document.getElementById("cart-total") || document.querySelector(".cart-total"); // ✅ fix
   const cartCountEl = document.getElementById("cartCount");
   const cartBtn = document.getElementById("cartBtn");
 
@@ -118,8 +107,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
     const total = cart.reduce((s,i)=> s + Number(i.price || 0), 0);
     if (cartTotalEl) cartTotalEl.textContent = total.toLocaleString();
-    // ensure checkout button exists
-    if (cartPanel && !cartPanel.querySelector("#checkout-btn")) {
+    if (cartPanel && !document.getElementById("checkout-btn")) { // ✅ safer check
       const btn = document.createElement("button");
       btn.id = "checkout-btn";
       btn.textContent = "Proceed to Checkout";
@@ -129,11 +117,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (cart.length === 0) cartPanel.classList.add("hidden");
   }
 
-  // initial sync
   updateCartCount();
   renderCartPanel();
 
-  // delegate add-to-cart
   document.addEventListener("click", (e) => {
     const add = e.target.closest(".add-to-cart");
     if (add) {
@@ -144,13 +130,11 @@ document.addEventListener("DOMContentLoaded", async () => {
       cart.push({ id: Date.now(), name, price });
       saveCart();
       renderCartPanel();
-      if (cartPanel) cartPanel.classList.remove("hidden");
-      // small visual feedback
+      cartPanel?.classList.remove("hidden");
       add.animate([{ transform: "scale(1.02)" }, { transform: "scale(1)" }], { duration: 180 });
       return;
     }
 
-    // remove item
     const rem = e.target.closest(".remove-item");
     if (rem) {
       const idx = Number(rem.dataset.idx);
@@ -162,16 +146,13 @@ document.addEventListener("DOMContentLoaded", async () => {
       return;
     }
 
-    // checkout from panel
     if (e.target && e.target.id === "checkout-btn") {
-      // persist and open checkout page
       localStorage.setItem(CART_KEY, JSON.stringify(cart));
       window.open("checkout.html", "_blank");
       return;
     }
   });
 
-  // cart icon click toggles panel
   cartBtn?.addEventListener("click", () => {
     if (cartPanel) {
       cartPanel.classList.toggle("hidden");
@@ -179,16 +160,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
   });
 
-  // close-cart button inside panel (if present)
-  const closeCartBtn = document.getElementById("close-cart");
-  closeCartBtn?.addEventListener("click", () => cartPanel?.classList.add("hidden"));
+  document.getElementById("close-cart")?.addEventListener("click", () => cartPanel?.classList.add("hidden"));
 
-  /* ===========================
-     CHECKOUT PAGE HANDLER
-     (if user is on checkout.html)
-     =========================== */
+  /* CHECKOUT */
   if (location.pathname.endsWith("checkout.html") || location.href.includes("checkout.html")) {
-    // render checkout summary
     const stored = JSON.parse(localStorage.getItem(CART_KEY) || "[]");
     const itemsContainer = document.getElementById("checkout-items");
     const totalEl = document.getElementById("checkout-total");
@@ -198,18 +173,17 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
     if (totalEl) totalEl.textContent = "₦" + (stored.reduce((s,i)=> s + Number(i.price),0)).toLocaleString();
 
-    // Paystack form handling (inline)
     if (checkoutForm) {
       checkoutForm.addEventListener("submit", (ev) => {
         ev.preventDefault();
         const email = checkoutForm.querySelector('input[name="email"]')?.value;
         if (!email) { alert("Enter email"); return; }
         const total = stored.reduce((s,i)=> s + Number(i.price), 0);
-        const PAYSTACK_PUBLIC_KEY = "pk_live_8fc53d727f2efefc2e8899494197e9b04ddc945f"; // replace with yours if needed
+        const PAYSTACK_PUBLIC_KEY = "pk_live_8fc53d727f2efefc2e8899494197e9b04ddc945f"; // ✅ left blank for safety
         if (!window.PaystackPop) { alert("Paystack script not loaded."); return; }
         const handler = PaystackPop.setup({
           key: PAYSTACK_PUBLIC_KEY,
-          email: email,
+          email,
           amount: total * 100,
           currency: "NGN",
           metadata: { custom_fields: [{ display_name: "Cart", variable_name: "cart", value: JSON.stringify(stored) }] },
@@ -224,5 +198,4 @@ document.addEventListener("DOMContentLoaded", async () => {
       });
     }
   }
-
 });
