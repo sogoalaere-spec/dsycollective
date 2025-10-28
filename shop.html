@@ -29,29 +29,69 @@
         <p class="muted">Timeless luxury pieces crafted for the modern creative.</p>
 
         <div class="shop-grid">
-          <div class="product-card" data-name="Classic Cropped Tee" data-price="26000">
-            <img src="prod-tee.jpg" alt="DSY Tee" />
-            <h3>Classic Cropped Tee</h3>
+
+          <div class="product-card" 
+            data-name="Classic Cropped Tee" 
+            data-price="26000"
+            data-description="A minimalist cropped tee crafted from premium cotton, soft yet structured. Perfect for layering or wearing solo."
+            data-image="prod-tee.jpg">
+            <img src="prod-tee.jpg" alt="DSY Tee" class="open-product" />
+            <h3 class="open-product">Classic Cropped Tee</h3>
             <p>₦26,000</p>
-            <button class="add-to-cart" data-name="Classic Cropped Tee" data-price="26000">Add to Cart</button>
           </div>
 
-          <div class="product-card" data-name="Signature Hoodie" data-price="40000">
-            <img src="prod-hoodie.jpg" alt="DSY Hoodie" />
-            <h3>Signature Hoodie</h3>
+          <div class="product-card" 
+            data-name="Signature Hoodie" 
+            data-price="40000"
+            data-description="The DSY Signature Hoodie offers a relaxed fit, heavyweight cotton feel, and timeless streetwear edge."
+            data-image="prod-hoodie.jpg">
+            <img src="prod-hoodie.jpg" alt="DSY Hoodie" class="open-product" />
+            <h3 class="open-product">Signature Hoodie</h3>
             <p>₦40,000</p>
-            <button class="add-to-cart" data-name="Signature Hoodie" data-price="40000">Add to Cart</button>
           </div>
 
-          <div class="product-card" data-name="DSY Joggers" data-price="40000">
-            <img src="prod-jogger.jpg" alt="DSY Joggers" />
-            <h3>DSY Joggers</h3>
+          <div class="product-card" 
+            data-name="DSY Joggers" 
+            data-price="40000"
+            data-description="Tapered-fit joggers with detailed stitching, side pockets, and the DSY insignia. Perfect for street or studio."
+            data-image="prod-jogger.jpg">
+            <img src="prod-jogger.jpg" alt="DSY Joggers" class="open-product" />
+            <h3 class="open-product">DSY Joggers</h3>
             <p>₦40,000</p>
-            <button class="add-to-cart" data-name="DSY Joggers" data-price="40000">Add to Cart</button>
           </div>
+
         </div>
       </section>
     </main>
+
+    <!-- Product Detail Modal -->
+    <div id="productModal" class="modal hidden">
+      <div class="modal-content">
+        <span id="closeModal" class="close">&times;</span>
+        <img id="modalImage" src="" alt="Product Image" />
+        <h3 id="modalName"></h3>
+        <p id="modalDesc" class="muted"></p>
+        <p id="modalPrice"></p>
+
+        <label for="size">Size:</label>
+        <select id="modalSize">
+          <option value="">Select size</option>
+          <option value="Small">Small</option>
+          <option value="Medium">Medium</option>
+          <option value="Large">Large</option>
+        </select>
+
+        <label for="color">Color:</label>
+        <select id="modalColor">
+          <option value="">Select color</option>
+          <option value="Black">Black</option>
+          <option value="White">White</option>
+          <option value="Beige">Beige</option>
+        </select>
+
+        <button id="modalAddToCart">Add to Cart</button>
+      </div>
+    </div>
 
     <!-- Cart panel -->
     <div id="cart-panel" class="hidden">
