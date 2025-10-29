@@ -65,33 +65,35 @@
     </main>
 
     <!-- Product Detail Modal -->
-    <div id="productModal" class="modal hidden">
-      <div class="modal-content">
-        <span id="closeModal" class="close">&times;</span>
-        <img id="modalImage" src="" alt="Product Image" />
-        <h3 id="modalName"></h3>
-        <p id="modalDesc" class="muted"></p>
-        <p id="modalPrice"></p>
+<div id="productModal" class="product-modal-overlay">
+  <div class="product-modal">
+    <button class="close-modal" aria-label="Close">&times;</button>
+    <img id="modalImage" src="" alt="Product Image" />
+    <h3 id="modalName">Product Name</h3>
+    <p id="modalDescription" class="description">Description goes here.</p>
 
-        <label for="size">Size:</label>
-        <select id="modalSize">
-          <option value="">Select size</option>
-          <option value="Small">Small</option>
-          <option value="Medium">Medium</option>
-          <option value="Large">Large</option>
-        </select>
+    <div class="selectors">
+      <label for="modalSize">Size</label>
+      <select id="modalSize">
+        <option value="">Select size</option>
+        <option>Small</option>
+        <option>Medium</option>
+        <option>Large</option>
+      </select>
 
-        <label for="color">Color:</label>
-        <select id="modalColor">
-          <option value="">Select color</option>
-          <option value="Black">Black</option>
-          <option value="White">White</option>
-          <option value="Beige">Beige</option>
-        </select>
-
-        <button id="modalAddToCart">Add to Cart</button>
-      </div>
+      <label for="modalColor">Color</label>
+      <select id="modalColor">
+        <option value="">Select color</option>
+        <option>Black</option>
+        <option>White</option>
+        <option>Red</option>
+      </select>
     </div>
+
+    <button id="modalAddToCart">Add to Cart</button>
+  </div>
+</div>
+
 
     <!-- Cart panel -->
     <div id="cart-panel" class="hidden">
