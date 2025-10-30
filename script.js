@@ -75,6 +75,60 @@ document.addEventListener("DOMContentLoaded", async () => {
     faders.forEach(el => obs.observe(el));
   }
 
+  /* ==============================
+   🛍 Product Modal Interactions
+============================== */
+const modal = document.getElementById("productModal");
+const modalImg = document.getElementById("modalImage");
+const modalName = document.getElementById("modalName");
+const modalDesc = document.getElementById("modalDescription");
+const modalSize = document.getElementById("modalSize");
+const modalColor = document.getElementById("modalColor");
+const modalAdd = document.getElementById("modalAddToCart");
+const modalClose = document.querySelector(".close-modal");
+
+document.querySelectorAll(".product-card img, .product-card h3").forEach(el => {
+  el.addEventListener("click", e => {
+    const card = e.target.closest(".product-card");
+    if (!card) return;
+
+    const name = card.dataset.name;
+    const price = card.dataset.price;
+    const imgSrc = card.querySelector("img").src;
+
+    modalImg.src = imgSrc;
+    modalName.textContent = name;
+    modalDesc.textContent = `Experience the luxury of DSY Collective with our ${name}. Designed for comfort and sophistication.`;
+    modal.dataset.name = name;
+    modal.dataset.price = price;
+
+    modal.classList.add("active");
+  });
+});
+
+modalClose?.addEventListener("click", () => modal.classList.remove("active"));
+modal.addEventListener("click", e => {
+  if (e.target === modal) modal.classList.remove("active");
+});
+
+modalAdd?.addEventListener("click", () => {
+  const name = modal.dataset.name;
+  const price = modal.dataset.price;
+  const size = modalSize.value;
+  const color = modalColor.value;
+
+  if (!size || !color) {
+    alert("Please select size and color before adding to cart.");
+    return;
+  }
+
+  cart.push({ name: `${name} (${size}, ${color})`, price });
+  saveCart();
+  renderCartPanel();
+  modal.classList.remove("active");
+  alert(`${name} added to cart!`);
+});
+
   /* CART */
   const CART_KEY = "dsyCart_v1";
   let cart = JSON.parse(localStorage.getItem(CART_KEY) || "[]");
